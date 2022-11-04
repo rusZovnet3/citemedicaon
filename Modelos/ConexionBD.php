@@ -5,4 +5,5 @@
 			$bd->exec("set names utf8");
 			return $bd;
 		}
+
 	}

@@ -1,9 +1,13 @@
+<?php
+    session_start();
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Citas Medicas | Online</title>
+  <title>Citas Médicas | Online</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -23,7 +27,7 @@
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini login-page">
 <!-- Site wrapper -->
 
   <?php
@@ -44,8 +48,10 @@
 
                 $url = explode("/", $_GET["url"]);
 
-                if ($url[0] == "Inicio") {
+                if ($url[0] == "inicio" || $url[0] == "salir") {
                     include 'modulos/' . $url[0] . '.php';
+                }else {
+                  include 'modulos/404.php';
                 }
 
               }else {
@@ -56,17 +62,30 @@
 
         /*End - Contenido*/
 
-        /*Begin ---- Direcciona al la seleccion de usuarios*/
+        # End --- Session Logueado
+
+
+        /*Begin ---- Direcciona al la seleccion de usuarios --- No son logueado*/
       }else if (isset($_GET["url"])) {
 
         if ($_GET["url"] == "seleccionar") {
+
                   include 'modulos/seleccionar.php';
-        }
 
+        } else if ($_GET["url"] == "ingreso-Secretaria") {
+
+                  include 'modulos/ingreso-Secretaria.php';
+
+                }else{
+                  include 'modulos/seleccionar.php';
+                }
+
+      }else{
+        include 'modulos/seleccionar.php';
       }
-       /*End ---- Direcciona al la seleccion de usuarios*/
 
-      # End --- Session Logueado
+       /*End ---- Direcciona al la seleccion de usuarios --- No son logueado*/
+
 
 
 

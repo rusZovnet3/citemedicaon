@@ -4,10 +4,19 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="Vistas/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <?php
+
+              if ($_SESSION["foto"] == "") {
+                    echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="user-image">';
+                  } else {
+                    echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $_SESSION["foto"] .'" class="user-image">';
+                  }
+
+           ?>
+
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?php echo $_SESSION["nombre"]; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

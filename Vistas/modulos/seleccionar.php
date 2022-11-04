@@ -19,7 +19,7 @@
             <div class="icon">
               <i class="fa fa-female"></i>
             </div>
-            <a href="#" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="ingreso-Secretaria" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
           <!--End --- small box -->
 
