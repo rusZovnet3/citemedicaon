@@ -58,10 +58,58 @@
 
  			echo   '</td>
  					<td>
- 						<a href="#">
+ 						<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-S/'. $resultado["id"] .'">
  							<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
  						</a>
  					</td>
  				</tr>';
+		}
+
+		public function EditarPerfilSecretariaC(){
+			$tablaBD 	= "secretarias";
+			$id 		= $_SESSION["id"];
+			$resultado 	= SecretariasM::VerPerfilSecretariaM($tablaBD, $id);
+
+			echo '<form method="post" enctype="multipart/form-data" autocomplete="off">
+
+ 					<div class="row">
+
+ 						<div class="col-md-6 col-xs-12">
+
+ 							<h2>Nombre:</h2>
+ 							<input type="text" class="input-lg" name="nombreP" value="'. $resultado["nombre"] .'">
+ 							<input type="hidden" class="input-lg" name="idP" value="'. $resultado["id"] .'">
+
+ 							<h2>Apellido:</h2>
+ 							<input type="text" class="input-lg" name="apellidoP" value="'. $resultado["apellido"] .'">
+
+ 							<h2>Usuario:</h2>
+ 							<input type="text" class="input-lg" name="usuarioP" value="'. $resultado["usuario"] .'">
+
+ 							<h2>Contraseña:</h2>
+ 							<input type="password" class="input-lg" name="claveP" value="'. $resultado["clave"] .'">
+
+ 						</div>
+
+ 						<div class="col-md-6 col-xs-12">
+ 							<br><br>
+
+ 							<input type="file" name="imgP"><br>';
+
+ 							if ($resultado["foto"] != "") {
+ 								echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $resultado["foto"] .'" class="img-responsive" width="200px;">';
+ 							} else {
+ 								echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="img-responsive" width="200px;">';
+ 							}
+
+
+ 					echo    '<input type="hidden" name="imgActual" value="'. $resultado["foto"] .'"><br><br>
+
+ 							<button type="submit" class="btn btn-success">Guardar Cambios</button>
+ 						</div>
+
+ 					</div>
+
+ 				  </form>';
 		}
 	}
