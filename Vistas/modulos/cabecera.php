@@ -31,8 +31,7 @@
                   echo '<span class="hidden-xs">'. $_SESSION["nombre"] . ' ' . $_SESSION["apellido"] .'</span>';
 
                ?>
-              <!-- <img src="Vistas/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span> -->
+
             </a>
             <ul class="dropdown-menu">
 

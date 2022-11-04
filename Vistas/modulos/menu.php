@@ -16,8 +16,8 @@
 
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION["nombre"]; ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p><?php echo strtoupper($_SESSION["nombre"]); ?></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> En Línea</a>
         </div>
       </div>
       <!-- search form -->
