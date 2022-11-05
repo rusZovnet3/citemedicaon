@@ -27,7 +27,7 @@
 						$_SESSION["rol"] 		= $resultado["rol"];
 
 						echo '<script>
-									window.location = "inicio";
+									window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/inicio";
 								</script>';
 					}else{
 						echo '<br><div class="alert alert-danger text-center">Error al Ingresar</div>';
@@ -111,5 +111,73 @@
  					</div>
 
  				  </form>';
+		}
+
+
+		public function ActualizarPerfilSecretariaC(){
+
+			if (isset($_POST["idP"])) {
+
+				$rutaImg = $_POST["imgActual"];
+
+				date_default_timezone_set("America/La_Paz");
+
+				# Verificamos si el archivo esta cargado file
+				if (isset($_FILES["imgP"]["tmp_name"]) && !empty($_FILES["imgP"]["tmp_name"])) {
+
+					# Verificamos si la ruta desde la BD no es blanco
+					if (!empty($_POST["imgActual"])) {
+
+						# elimina el archivo de la ruta
+						unlink($_POST["imgActual"]);
+					}
+
+					# Verifica si el archivo cargado es de formato JPEG ó JPG
+					if ($_FILES["imgP"]["type"] == "image/jpeg") {
+
+						$nombre 	= date("dmY_His_") . mt_rand(10, 999);
+						$rutaImg 	= "Vistas/img/Secretarias/S-" . $nombre . ".jpg";
+						$foto 		= imagecreatefromjpeg($_FILES["imgP"]["tmp_name"]);
+						imagejpeg($foto, $rutaImg);
+					}
+
+					# Verifica si el archivo cargado es de formato PNG
+					if ($_FILES["imgP"]["type"] == "image/png") {
+
+						$nombre 	= date("dmY_His_") . mt_rand(10, 999);
+						$rutaImg 	= "Vistas/img/Secretarias/S-" . $nombre . ".png";
+						$foto 		= imagecreatefrompng($_FILES["imgP"]["tmp_name"]);
+						imagepng($foto, $rutaImg);
+					}
+				}
+
+				$tablaBD = "secretarias";
+				$datosC = array("id" 		=> $_POST["idP"],
+								"usuario" 	=> $_POST["usuarioP"],
+								"clave" 	=> $_POST["claveP"],
+								"nombre" 	=> $_POST["nombreP"],
+								"apellido" 	=> $_POST["apellidoP"],
+								"foto" 		=> $rutaImg);
+
+
+				$resultado = SecretariasM::ActualizarPerfilSecretariaM($tablaBD, $datosC);
+
+				# Actualizar las $_SESSION del logueado sus atributos
+				$act_sess = SecretariasM::VerPerfilSecretariaM($tablaBD, $_POST["idP"]);
+
+				if ($resultado == true) {
+
+					# actualiza las $_SESSION del usuario logueado
+					$_SESSION["usuario"] 	= $act_sess["usuario"];
+					$_SESSION["clave"] 		= $act_sess["clave"];
+					$_SESSION["nombre"] 	= $act_sess["nombre"];
+					$_SESSION["apellido"] 	= $act_sess["apellido"];
+					$_SESSION["foto"] 		= $act_sess["foto"];
+
+					echo '<script>
+							window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-S/'. $_SESSION["id"] .'";
+						</script>';
+				}
+			}
 		}
 	}

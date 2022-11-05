@@ -16,6 +16,8 @@
  				$editarPerfil = new SecretariasC();
  				$editarPerfil->EditarPerfilSecretariaC();
 
+ 				$editarPerfil->ActualizarPerfilSecretariaC();
+
  				 ?>
 
  			</div>
