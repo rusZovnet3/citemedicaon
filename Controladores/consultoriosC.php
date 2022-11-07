@@ -23,4 +23,21 @@
 			$resultado 	= ConsultoriosM::VerConsultoriosM($tablaBD, $columna, $valor);
 			return $resultado;
 		}
+
+		public function BorrarConsultorioC(){
+
+			if (substr($_GET["url"], 13)) {
+				$tablaBD = "consultorios";
+				$id = substr($_GET["url"], 13);
+
+				$resultado = ConsultoriosM::BorrarConsultorioM($tablaBD, $id);
+
+				if ($resultado == true) {
+					echo '<script>
+								window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/consultorios";
+							</script>';
+				}
+			}
+
+		}
 	}

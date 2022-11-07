@@ -61,11 +61,11 @@
 			 							<td>'. $value["nombre"] .'</td>
 			 							<td>
 			 								<div class="btn-group">
-			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $value["id"] .'">
+			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/consultorios/'. $value["id"] .'">
 			 										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
 			 									</a>
 
-			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $value["id"] .'">
+			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/consultorios/'. $value["id"] .'">
 			 										<button class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
 			 									</a>
 			 								</div>
@@ -85,3 +85,7 @@
  	</section>
 
  </div>
+
+ <?php
+ 	$borrarC = new ConsultoriosC();
+ 	$borrarC->BorrarConsultorioC();
