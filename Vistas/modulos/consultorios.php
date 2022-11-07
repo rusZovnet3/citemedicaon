@@ -27,7 +27,15 @@
  					</div>
 
  					<button type="submit" class="btn btn-primary">Crear Consultorio</button>
+
  				</form>
+
+ 					<?php
+
+ 						$crearC = new ConsultoriosC();
+ 						$crearC->CrearConsultorioC();
+
+ 					 ?>
 
  			</div>
 

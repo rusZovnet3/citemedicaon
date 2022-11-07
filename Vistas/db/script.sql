@@ -11,7 +11,16 @@ create table secretarias(
 	rol text
 );
 
+create table consultorios(
+	id int primary key auto_increment,
+	nombre text
+);
+
 insert into secretarias(usuario,clave,nombre,apellido,rol)
 	values 	("karenz","karenz","KAREN","ZABALA CLAUDIO","Secretaria"),
 			("rosap","rosap","ROSA","PARACTA AZURDUY","Secretaria");
+
+INSERT INTO consultorios(nombre)
+	VALUES 	("Cardiología"), ("Neumología"),
+			("Gastrología"), ("Neurología");
 
