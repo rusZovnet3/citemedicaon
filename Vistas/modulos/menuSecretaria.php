@@ -16,7 +16,15 @@
 
         </div>
         <div class="pull-left info">
-          <p><?php echo strtoupper($_SESSION["nombre"]); ?></p>
+          <p>
+            <?php
+
+                $ext = explode(" ", $_SESSION["nombre"]);
+                echo strtoupper($ext[0]);
+
+              ?>
+
+          </p>
           <a href="#"><i class="fa fa-circle text-success"></i> En Línea</a>
         </div>
       </div>

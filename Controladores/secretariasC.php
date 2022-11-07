@@ -175,7 +175,7 @@
 					$_SESSION["foto"] 		= $act_sess["foto"];
 
 					echo '<script>
-							window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-S/'. $_SESSION["id"] .'";
+							window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-Secretaria";
 						</script>';
 				}
 			}
