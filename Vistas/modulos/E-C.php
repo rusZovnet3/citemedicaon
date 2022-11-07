@@ -22,6 +22,7 @@
 
  					$editarC = new ConsultoriosC();
  					$editarC->EditarConsultoriosC();
+ 					$editarC->ActualizarConsultoriosC();
 
  					 ?>
 

@@ -57,4 +57,24 @@
  				  </div>';
 
 		}
+
+
+		public function ActualizarConsultoriosC(){
+
+			if (isset($_POST["consultorioE"])) {
+
+				$tablaBD = "consultorios";
+
+				$datosC = array("id" 		=> $_POST["Cid"],
+								"nombre" 	=> $_POST["consultorioE"]);
+
+				$resultado = ConsultoriosM::ActualizarConsultoriosM($tablaBD, $datosC);
+
+				if ($resultado == true) {
+					echo '<script>
+								window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/consultorios";
+							</script>';
+				}
+			}
+		}
 	}

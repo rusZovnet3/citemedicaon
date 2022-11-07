@@ -50,4 +50,21 @@
 			$pdo->close();
 			$pdo = null;
 		}
+
+
+		static public function ActualizarConsultoriosM($tablaBD, $datosC){
+			$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET nombre = :nombre WHERE id = :id");
+
+			$pdo->bindParam(":id", $datosC["id"], PDO::PARAM_INT);
+			$pdo->bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
+
+			if ($pdo->execute()) {
+				return true;
+			}else{
+				return false;
+			}
+
+			$pdo->close();
+			$pdo = null;
+		}
 	}
