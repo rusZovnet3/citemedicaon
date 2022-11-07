@@ -40,7 +40,13 @@
           echo '<div class="wrapper">';
 
               include 'modulos/cabecera.php';
-              include 'modulos/menu.php';
+
+              # Control de Menú
+              if ($_SESSION["rol"] == "Secretaria") {
+                  include 'modulos/menuSecretaria.php';
+              }
+
+
 
               $url = array();
 
@@ -48,7 +54,7 @@
 
                 $url = explode("/", $_GET["url"]);
 
-                if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S") {
+                if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios") {
                     include 'modulos/' . $url[0] . '.php';
                 }else {
                   include 'modulos/404.php';
