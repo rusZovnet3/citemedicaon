@@ -40,4 +40,21 @@
 			}
 
 		}
+
+		public function EditarConsultoriosC(){
+			$tablaBD 	= "consultorios";
+			$valor 		= substr($_GET["url"], 4);
+
+			$resultado	= ConsultoriosM::VerConsultoriosM($tablaBD, "id", $valor);
+
+			echo '<div class="form-group">
+						<h2>Nombre:</h2>
+ 				  		<input type="text" name="consultorioE" value="'. $resultado["nombre"] .'" class="form-control input-lg">
+ 				  		<input type="hidden" name="Cid" value="'. $resultado["id"] .'" class="form-control input-lg"><br>
+
+ 				  	<button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+ 				  </div>';
+
+		}
 	}

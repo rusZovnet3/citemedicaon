@@ -61,7 +61,7 @@
 			 							<td>'. $value["nombre"] .'</td>
 			 							<td>
 			 								<div class="btn-group">
-			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/consultorios/'. $value["id"] .'">
+			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/E-C/'. $value["id"] .'">
 			 										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
 			 									</a>
 
