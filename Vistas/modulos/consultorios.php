@@ -50,18 +50,32 @@
  					</thead>
 
  					<tbody>
- 						<tr>
- 							<td>1</td>
- 							<td>Cardiologia</td>
- 							<td>
- 								<div class="btn-group">
- 									<a href="">
- 										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
- 										<button class="btn btn-success"><i class="fa fa-times"></i> Borrar</button>
- 									</a>
- 								</div>
- 							</td>
- 						</tr>
+
+ 						<?php
+
+ 							$resultado = ConsultoriosC::VerConsultoriosC(null, null);
+
+ 							foreach ($resultado as $key => $value) {
+ 								echo '<tr>
+			 							<td>'. ($key + 1) .'</td>
+			 							<td>'. $value["nombre"] .'</td>
+			 							<td>
+			 								<div class="btn-group">
+			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $value["id"] .'">
+			 										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
+			 									</a>
+
+			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $value["id"] .'">
+			 										<button class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
+			 									</a>
+			 								</div>
+			 							</td>
+			 						</tr>';
+ 							}
+
+ 						 ?>
+
+
  					</tbody>
  				</table>
  			</div>

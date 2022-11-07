@@ -17,4 +17,10 @@
 				}
 			}
 		}
+
+		static public function VerConsultoriosC($columna, $valor){
+			$tablaBD 	= "consultorios";
+			$resultado 	= ConsultoriosM::VerConsultoriosM($tablaBD, $columna, $valor);
+			return $resultado;
+		}
 	}
