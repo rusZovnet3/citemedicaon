@@ -43,28 +43,42 @@
 
  						<?php
 
- 							/*$resultado = ConsultoriosC::VerConsultoriosC(null, null);
+ 							$verDoctores = DoctoresC::VerDoctoresC(null, null);
 
- 							foreach ($resultado as $key => $value) {
+ 							foreach ($verDoctores as $key => $value) {
  								echo '<tr>
 			 							<td>'. ($key + 1) .'</td>
+			 							<td>'. $value["apellido"] .'</td>
 			 							<td>'. $value["nombre"] .'</td>
+			 						 	<td>';
+
+			 						 	if ($value["foto"] == "" || $value["foto"] == null) {
+				 							echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="img-responsive center-block" width="40px" height="40px">';
+				 						} else {
+				 							echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $value["foto"] .'" class="img-responsive center-block" width="40px" height="40px">';
+				 						}
+
+				 						$consul = ConsultoriosC::VerConsultoriosC("id", $value["id_consultorio"]);
+
+			 					echo    '</td>
+			 							<td>'. $consul["nombre"] .'</td>
+			 						 	<td>'. $value["usuario"] .'</td>
+			 						 	<td>'. $value["clave"] .'</td>
 			 							<td>
 			 								<div class="btn-group">
-			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/E-C/'. $value["id"] .'">
+			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/doctores/'. $value["id"] .'">
 			 										<button class="btn btn-success"><i class="fa fa-pencil"></i> Editar</button>
 			 									</a>
 
-			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/consultorios/'. $value["id"] .'">
+			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/doctores/'. $value["id"] .'">
 			 										<button class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
 			 									</a>
 			 								</div>
 			 							</td>
 			 						</tr>';
- 							}*/
+ 							}
 
  						 ?>
-
 
  					</tbody>
  				</table>
