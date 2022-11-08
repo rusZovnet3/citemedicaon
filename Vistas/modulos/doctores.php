@@ -66,11 +66,8 @@
 			 						 	<td>'. $value["clave"] .'</td>
 			 							<td>
 			 								<div class="btn-group">
-			 									<button class="btn btn-success EditarDoctor" Did="'. $value["id"] .'" data-toggle="modal" data-target="#EditarDoctor"><i class="fa fa-pencil"></i> Editar</button>
-
-			 									<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/doctores/'. $value["id"] .'">
-			 										<button class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
-			 									</a>
+			 									<button class="btn btn-success EditarDoctor" Did="'. $value["id"] .'" data-toggle="modal" data-target="#EditarDoctor" style="margin-right:5px;"><i class="fa fa-pencil"></i> Editar</button>
+			 									<button class="btn btn-danger EliminarDoctor" Did="'. $value["id"] .'" imgD="'. $value["foto"] .'" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
 			 								</div>
 			 							</td>
 			 						</tr>';
@@ -302,5 +299,5 @@
  	<!--End Editar modal Doctores -->
 
  <?php
- 	/*$borrarC = new ConsultoriosC();
- 	$borrarC->BorrarConsultorioC();*/
+ 	$borrarD = new DoctoresC();
+ 	$borrarD->EliminarDoctorC();

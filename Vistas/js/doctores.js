@@ -46,3 +46,13 @@ $(".DT").on("click", ".EditarDoctor", function(){
 		}
 	});
 });
+
+
+
+/*Eliminar Doctor por GET  --- button eliminar del listado*/
+$(".DT").on("click", ".EliminarDoctor", function(){
+	let Did 	= $(this).attr("Did");
+	let imgD 	= $(this).attr("imgD");
+
+	window.location = "index.php?url=doctores&Did=" + Did + "&imgD=" + imgD;
+});

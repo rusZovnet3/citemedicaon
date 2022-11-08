@@ -55,4 +55,28 @@
 			}
 		}
 
+		// GET por JS
+		public function EliminarDoctorC(){
+
+			if (isset($_GET["Did"])) {
+				$tablaBD = "doctores";
+				$id = $_GET["Did"];
+
+				# Verifica si la ruta imagen desde la BD no esta vacío
+				if ($_GET["imgD"] != "") {
+
+					// Elimina la ruta archivo del sistema
+					unlink($_GET["imgD"]);
+				}
+
+				$resultado = DoctoresM::EliminarDoctorM($tablaBD, $id);
+
+				if ($resultado == true) {
+					echo '<script>
+								window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/doctores";
+							</script>';
+				}
+			}
+		}
+
 	}
