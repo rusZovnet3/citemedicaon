@@ -31,4 +31,28 @@
 			return $resultado;
 		}
 
+
+		public function ActualizarDoctorC(){
+
+			if (isset($_POST["DidE"])) {
+				$tablaBD = "doctores";
+
+				$datosC = array("id" 				=> $_POST["DidE"],
+								"apellido" 			=> $_POST["apellidoE"],
+								"nombre" 			=> $_POST["nombreE"],
+								"sexo"				=> $_POST["sexoE"],
+								"usuario" 			=> $_POST["usuarioE"],
+								"clave" 			=> $_POST["claveE"],
+								"id_consultorio" 	=> $_POST["consultorioE"]);
+
+				$resultado = DoctoresM::ActualizarDoctorM($tablaBD, $datosC);
+
+				if ($resultado == true) {
+					echo '<script>
+								window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/doctores";
+							</script>';
+				}
+			}
+		}
+
 	}

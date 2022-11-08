@@ -194,6 +194,9 @@
  	<!--End --- modal Crear Doctores -->
 
 
+
+
+
  	<!--Begin Editar modal Doctores -->
  	<div class="modal fade" id="EditarDoctor" rol="dialog">
  		<div class="modal-dialog">
@@ -287,8 +290,8 @@
 
  					<?php
 
- 					$crearD = new DoctoresC();
- 					$crearD->CrearDoctorC();
+ 					$actualizarD = new DoctoresC();
+ 					$actualizarD->ActualizarDoctorC();
 
  					 ?>
  				</form>
