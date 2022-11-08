@@ -113,6 +113,9 @@
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/dist/js/demo.js"></script>
+
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/doctores.js"></script>
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
