@@ -83,5 +83,5 @@ $(".DT").DataTable({
 	},
 	/*"bDestroy": true,*/
 	"iDisplayLength": 4,	//Paginacion
-	"order": [[0, "desc"]]
+	"order": [[0, "asc"]]
 });

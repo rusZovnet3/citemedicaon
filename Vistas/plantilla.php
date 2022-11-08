@@ -58,7 +58,7 @@
 
                 $url = explode("/", $_GET["url"]);
 
-                if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores") {
+                if ($url[0] == "inicio" || $url[0] == "salir" || $url[0] == "perfil-Secretaria" || $url[0] == "perfil-S" || $url[0] == "consultorios" || $url[0] == "E-C" || $url[0] == "doctores" || $url[0] == "pacientes") {
                     include 'modulos/' . $url[0] . '.php';
                 }else {
                   include 'modulos/404.php';
