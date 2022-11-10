@@ -132,8 +132,8 @@
 
  					<?php
 
- 					/*$crearD = new DoctoresC();
- 					$crearD->CrearDoctorC();*/
+ 					$crearP = new PacientesC();
+ 					$crearP->CrearPacienteC();
 
  					 ?>
  				</form>

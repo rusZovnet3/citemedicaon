@@ -30,6 +30,17 @@ create table doctores(
 	rol text
 );
 
+create table pacientes(
+	id int primary key auto_increment,
+	apellido text,
+	nombre text,
+	documento text,
+	foto text,
+	usuario text,
+	clave text,
+	rol varchar(8) default "Paciente"
+);
+
 /*==========================================
 =            Datos de tablas               =
 ==========================================*/
@@ -42,6 +53,12 @@ INSERT INTO consultorios(nombre)
 	VALUES 	("Cardiología"), ("Neumología"),
 			("Gastrología"), ("Neurología");
 
+insert into pacientes(apellido,nombre,documento,usuario,clave)
+	values 	('Zelaya Luizaga','Norah','100112','norahz','norahz'),
+			('Melendres','Tatiana','100113','tatianam','tatianam'),
+			('Herrera','Katherine','152220','katherineh','katherineh'),
+			('Soruco Zeballos','Vanessa','100452','vanessas','vanessas');
+
 
 
 
@@ -51,5 +68,8 @@ INSERT INTO consultorios(nombre)
 alter table doctores AUTO_INCREMENT=1;
 
 alter table doctores add foreign key(id_consultorio) references consultorios(id);
+
+
+
 
 
