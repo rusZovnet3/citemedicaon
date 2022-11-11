@@ -56,4 +56,27 @@
 			}
 		}
 
+
+		public function ActualizarPacienteC(){
+			if (isset($_POST["Pid"]) && !empty($_POST["apellidoE"]) && !empty($_POST["usuarioE"]) && !empty($_POST["claveE"]) && !empty($_POST["documentoE"])) {
+
+				$tablaBD = "pacientes";
+
+				$datosC = array("apellido" 	=> $_POST["apellidoE"],
+								"nombre" 	=> $_POST["nombreE"],
+								"documento" => $_POST["documentoE"],
+								"usuario" 	=> $_POST["usuarioE"],
+								"clave" 	=> $_POST["claveE"],
+								"id" 		=> $_POST["Pid"]);
+
+				$resultado = PacientesM::ActualizarPacienteM($tablaBD, $datosC);
+
+				if ($resultado == true) {
+					echo '<script>
+								window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/pacientes";
+							</script>';
+				}
+			}
+		}
+
 	}

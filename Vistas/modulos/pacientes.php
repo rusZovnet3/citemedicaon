@@ -229,8 +229,8 @@
 
  					<?php
 
- 					/*$actualizarD = new DoctoresC();
- 					$actualizarD->ActualizarDoctorC();*/
+ 					$actualizarP = new PacientesC();
+ 					$actualizarP->ActualizarPacienteC();
 
  					 ?>
  				</form>
