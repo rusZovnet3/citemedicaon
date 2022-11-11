@@ -18,20 +18,36 @@
 
  		<div class="box">
 
-
  			<div class="box-body">
 
- 				<div class="col-lg-3 col-xs-6">
+ 				<?php
 
- 					<div class="small-box bg-aqua">
+		 		# Ver Doctores
+		 		$ver_doctores = DoctoresC::VerDoctoresC(null, null);
 
- 						<div class="inner">
- 							<h3>Cardiología</h3>
- 							<a href="Doctor" style="color: black;"><p>Rosio Pedraza Zabala</p></a>
- 						</div>
+		 		foreach ($ver_doctores as $key => $value) {
 
- 					</div>
- 				</div>
+					#  Mostrar Ver Consultorios, vista por el Paciente
+ 					$ver_consul_doct = ConsultoriosC::VerConsultoriosC("id", $value["id_consultorio"]);
+
+	 					echo '<div class="col-lg-3 col-xs-6">
+
+			 					<div class="small-box bg-aqua">
+
+			 						<div class="inner">
+			 							<h3 style="margin:2px;">'. $ver_consul_doct["nombre"] .'</h3>
+
+
+			 							<a href="Doctor/'. $value["id"] .'" style="color: black;"><p>'. $value["apellido"] . ' ' . $value["nombre"] . '</p></a>
+
+			 						</div>
+
+			 					</div>
+			 				</div>';
+
+		 		}
+
+ 				 ?>
 
  			</div>
 

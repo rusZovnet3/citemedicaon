@@ -82,6 +82,6 @@ $(".DT").DataTable({
 		"sLengthMenu": "Mostrar _MENU_ registros"
 	},
 	/*"bDestroy": true,*/
-	"iDisplayLength": 4,	//Paginacion
+	"iDisplayLength": 5,	//Paginacion
 	"order": [[0, "asc"]]
 });
