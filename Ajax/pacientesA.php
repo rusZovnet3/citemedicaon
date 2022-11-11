@@ -5,6 +5,7 @@
 
 	class PacientesA{
 		public $Pid;
+		public $Norepetir;
 
 		/*=======================================
 		=            Editar Paciente            =
@@ -16,6 +17,18 @@
 			echo json_encode($resultado);
 		}
 
+
+		/*==========================================
+		=            No repetir usuario            =
+		==========================================*/
+		public function NoRepetirUsuarioA(){
+			$columna = "usuario";
+			$valor = $this->Norepetir;
+			$resultado 	= PacientesC::VerPacientesC($columna, $valor);
+			echo json_encode($resultado);
+		}
+
+
 	}
 
 
@@ -26,4 +39,14 @@
 		$editarP = new PacientesA();
 		$editarP->Pid = $_POST["Pid"];
 		$editarP->EPacienteA();
+	}
+
+
+	/*====================================================================
+	=            Ajax en JS => POST   ==== No repetir usuario            =
+	====================================================================*/
+	if (isset($_POST["Norepetir"])) {
+		$noRepet = new PacientesA();
+		$noRepet->Norepetir = $_POST["Norepetir"];
+		$noRepet->NoRepetirUsuarioA();
 	}
