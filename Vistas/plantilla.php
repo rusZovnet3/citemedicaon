@@ -48,6 +48,8 @@
               # Control de Menú
               if ($_SESSION["rol"] == "Secretaria") {
                   include 'modulos/menuSecretaria.php';
+              }else if ($_SESSION["rol"] == "Paciente") {
+                  include 'modulos/menuPaciente.php';
               }
 
 
@@ -86,7 +88,12 @@
 
                   include 'modulos/ingreso-Secretaria.php';
 
+                }else if ($_GET["url"] == "ingreso-Paciente") {
+
+                  include 'modulos/ingreso-Paciente.php';
+
                 }else{
+
                   include 'modulos/seleccionar.php';
                 }
 
