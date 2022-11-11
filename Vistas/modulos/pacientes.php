@@ -62,7 +62,7 @@
 		 							<td>'. $value["clave"] .'</td>
 		 							<td>
 		 								<button class="btn btn-success EditarPaciente" data-toggle="modal" data-target="#EditarPaciente" style="margin-right:5px;"><i class="fa fa-pencil"></i> Editar</button>
-					 					<button class="btn btn-danger EliminarPaciente" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
+					 					<button class="btn btn-danger EliminarPaciente" Pid="'. $value["id"] .'" imgP="'. $value["foto"] .'" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
 		 							</td>
 		 						</tr>';
  						}
@@ -241,5 +241,5 @@
  	<!--End Editar modal Paciente -->
 
  <?php
- 	/*$borrarD = new DoctoresC();
- 	$borrarD->EliminarDoctorC();*/
+ 	$borrarP = new PacientesC();
+ 	$borrarP->EliminarPacienteC();

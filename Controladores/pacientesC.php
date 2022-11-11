@@ -31,4 +31,29 @@
 			return $resultado;
 		}
 
+
+		public function EliminarPacienteC(){
+
+			if (isset($_GET["Pid"])) {
+
+				$tablaBD = "pacientes";
+				$id = $_GET["Pid"];
+
+				# Verifica si la ruta imagen desde la BD no esta vacío
+				if ($_GET["imgP"] != "") {
+
+					// Elimina la ruta archivo del sistema
+					unlink($_GET["imgP"]);
+				}
+
+				$resultado = PacientesM::EliminarPacienteM($tablaBD, $id);
+
+				if ($resultado == true) {
+					echo '<script>
+								window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/pacientes";
+							</script>';
+				}
+			}
+		}
+
 	}

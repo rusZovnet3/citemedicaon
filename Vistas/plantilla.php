@@ -127,6 +127,8 @@
 
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/doctores.js"></script>
 
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/pacientes.js"></script>
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
