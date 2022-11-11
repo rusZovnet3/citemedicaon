@@ -172,7 +172,7 @@
  				 			<input type="text" name="apellidoPerfil" class="input-lg" value="'. $resultado["apellido"] .'">
 
  				 			<h2>Usuario:</h2>
- 				 			<input type="text" name="usuarioPerfil" class="input-lg" value="'. $resultado["usuario"] .'">
+ 				 			<input type="text" name="usuarioPerfil" id="usuario" class="input-lg" value="'. $resultado["usuario"] .'">
 
  				 			<h2>Clave:</h2>
  				 			<input type="password" name="clavePerfil" class="input-lg" value="'. $resultado["clave"] .'">
