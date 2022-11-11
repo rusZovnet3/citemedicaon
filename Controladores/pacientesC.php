@@ -175,7 +175,7 @@
  				 			<input type="text" name="usuarioPerfil" class="input-lg" value="'. $resultado["usuario"] .'">
 
  				 			<h2>Clave:</h2>
- 				 			<input type="text" name="clavePerfil" class="input-lg" value="'. $resultado["clave"] .'">
+ 				 			<input type="password" name="clavePerfil" class="input-lg" value="'. $resultado["clave"] .'">
 
  				 			<h2>Documento:</h2>
  				 			<input type="text" name="documentoPerfil" class="input-lg" value="'. $resultado["documento"] .'">
@@ -199,6 +199,75 @@
 
  				 	</div>
  				 </form>';
+		}
+
+
+		public function ActualizarPerfilPacienteC(){
+			if (isset($_POST["Pid"])) {
+
+				# Zona horaria de Bolivia
+				date_default_timezone_set("America/La_Paz");
+
+				$rutaImg = $_POST["imgActual"];
+
+				# sí el input file, la imagem esta cargado  Y  no esta vacío
+				if (isset($_FILES["imgPerfil"]["tmp_name"]) && !empty($_FILES["imgPerfil"]["tmp_name"])) {
+
+					# si la ruta Imagen no esta vacía, extraida desde la BD
+					if (!empty($_POST["imgActual"])) {
+
+						# elimina el fichero del sistema
+						unlink($_POST["imgActual"]);
+					}
+
+					/*----------  PNG  ----------*/
+
+					if ($_FILES["imgPerfil"]["type"] == "image/png") {
+						$nombre 	= date("dmY_His_") . mt_rand(10, 999);
+						$rutaImg 	= "Vistas/img/Pacientes/P-" . $nombre . ".png";
+						$foto 		= imagecreatefrompng($_FILES["imgPerfil"]["tmp_name"]);
+						imagepng($foto, $rutaImg);
+					}
+
+					/*----------  JPG  ----------*/
+
+					if ($_FILES["imgPerfil"]["type"] == "image/jpeg") {
+						$nombre 	= date("dmY_His_") . mt_rand(10, 999);
+						$rutaImg 	= "Vistas/img/Pacientes/P-" . $nombre . ".jpg";
+						$foto 		= imagecreatefromjpeg($_FILES["imgPerfil"]["tmp_name"]);
+						imagejpeg($foto, $rutaImg);
+					}
+				}
+
+				$tablaBD = "pacientes";
+				$datosC = array("id" 		=> $_POST["Pid"],
+								"usuario" 	=> $_POST["usuarioPerfil"],
+								"clave" 	=> $_POST["clavePerfil"],
+								"nombre" 	=> $_POST["nombrePerfil"],
+								"apellido" 	=> $_POST["apellidoPerfil"],
+								"documento" => $_POST["documentoPerfil"],
+								"foto" 		=> $rutaImg);
+
+				$resultado = PacientesM::ActualizarPerfilPacienteM($tablaBD, $datosC);
+
+				# Actualizar las $_SESSION del logueado sus atributos
+				$act_sess = PacientesM::VerPerfilPacienteM($tablaBD, $_POST["Pid"]);
+
+				if ($resultado == true) {
+
+					# actualiza las $_SESSION del usuario logueado
+						$_SESSION["usuario"] 	= $act_sess["usuario"];
+						$_SESSION["clave"] 		= $act_sess["clave"];
+						$_SESSION["nombre"] 	= $act_sess["nombre"];
+						$_SESSION["documento"] 	= $act_sess["documento"];
+						$_SESSION["apellido"] 	= $act_sess["apellido"];
+						$_SESSION["foto"] 		= $act_sess["foto"];
+
+					echo '<script>
+							window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-Paciente";
+						</script>';
+				}
+			}
 		}
 
 
