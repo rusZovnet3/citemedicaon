@@ -23,4 +23,22 @@
 			$pdo = null;
 		}
 
+
+		static public function VerPacientesM($tablaBD, $columna, $valor){
+			if ($columna == null) {
+				$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ORDER BY id ASC");
+				$pdo->execute();
+				return $pdo->fetchAll();
+			}else{
+				$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE $columna = :$columna");
+				$pdo->bindParam(":" . $columna, $valor, PDO::PARAM_STR);
+				$pdo->execute();
+				return $pdo->fetch();
+			}
+
+
+			$pdo->close();
+			$pdo = null;
+		}
+
 	}

@@ -41,19 +41,33 @@
 
  					<tbody>
 
- 						<tr>
- 							<td>1</td>
- 							<td>Romero Sandivel</td>
- 							<td>Lenny</td>
- 							<td>1452022</td>
- 							<td><img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="img-responsive center-block" width="40px" height="40px"></td>
- 							<td>lennyr</td>
- 							<td>lennyr</td>
- 							<td>
- 								<button class="btn btn-success EditarPaciente" data-toggle="modal" data-target="#EditarPaciente" style="margin-right:5px;"><i class="fa fa-pencil"></i> Editar</button>
-			 					<button class="btn btn-danger EliminarPaciente" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
- 							</td>
- 						</tr>
+ 						<?php
+
+ 						$mostrarPacientes = PacientesC::VerPacientesC(null, null);
+
+ 						foreach ($mostrarPacientes as $key => $value) {
+ 							echo '<tr>
+		 							<td>'. ($key + 1) .'</td>
+		 							<td>'. $value["apellido"] .'</td>
+		 							<td>'. $value["nombre"] .'</td>
+		 							<td>'. $value["documento"] .'</td>
+		 							<td>';
+		 								if ($value["foto"] != "") {
+		 									echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $value["foto"] .'" class="img-responsive center-block" width="40px" height="40px">';
+		 								}else{
+		 									echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="img-responsive center-block" width="40px" height="40px">';
+		 								}
+		 					echo	'</td>
+		 							<td>'. $value["usuario"] .'</td>
+		 							<td>'. $value["clave"] .'</td>
+		 							<td>
+		 								<button class="btn btn-success EditarPaciente" data-toggle="modal" data-target="#EditarPaciente" style="margin-right:5px;"><i class="fa fa-pencil"></i> Editar</button>
+					 					<button class="btn btn-danger EliminarPaciente" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
+		 							</td>
+		 						</tr>';
+ 						}
+
+ 						 ?>
 
  					</tbody>
  				</table>
