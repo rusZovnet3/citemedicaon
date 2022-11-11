@@ -61,7 +61,7 @@
 		 							<td>'. $value["usuario"] .'</td>
 		 							<td>'. $value["clave"] .'</td>
 		 							<td>
-		 								<button class="btn btn-success EditarPaciente" data-toggle="modal" data-target="#EditarPaciente" style="margin-right:5px;"><i class="fa fa-pencil"></i> Editar</button>
+		 								<button class="btn btn-success EditarPaciente" Pid="'. $value["id"] .'" imgP="'. $value["foto"] .'" data-toggle="modal" data-target="#EditarPaciente" style="margin-right:5px;"><i class="fa fa-pencil"></i> Editar</button>
 					 					<button class="btn btn-danger EliminarPaciente" Pid="'. $value["id"] .'" imgP="'. $value["foto"] .'" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
 		 							</td>
 		 						</tr>';
@@ -121,7 +121,7 @@
  							<div class="form-group">
 
  								<h2>Usuario:</h2>
- 								<input type="text" name="usuario" class="form-control input-lg" required>
+ 								<input type="text" name="usuario" id="usuario" class="form-control input-lg" required>
 
  							</div>
  							<!-- End -- Usuario -->
