@@ -38,23 +38,16 @@
         </li>
 
         <li>
-          <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/doctores">
-            <i class="fa fa-user-md"></i>
-            <span>Doctores</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/consultorios">
+          <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Ver-consultorios">
             <i class="fa fa-medkit"></i>
             <span>Consultorios</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/pacientes">
-            <i class="fa fa-users"></i>
-            <span>Pacientes</span>
+          <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/historial">
+            <i class="fa fa-calendar-check-o"></i>
+            <span>Historial</span>
           </a>
         </li>
       </ul>

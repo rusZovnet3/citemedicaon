@@ -121,4 +121,35 @@
 			}
 		}
 
+
+		public function VerPerfilPacienteC(){
+			$tablaBD 	= "pacientes";
+			$id 		= $_SESSION["id"];
+
+			$resultado = PacientesM::VerPerfilPacienteM($tablaBD, $id);
+
+			echo '<tr>
+ 					<td>'. $resultado["usuario"] .'</td>
+ 					<td>'. $resultado["clave"] .'</td>
+ 					<td>'. $resultado["nombre"] .'</td>
+ 					<td>'. $resultado["apellido"] .'</td>
+ 					<td>'. $resultado["documento"] .'</td>
+ 					<td>';
+
+ 						if ($resultado["foto"] == "" || $resultado["foto"] == null) {
+ 							echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="img-responsive center-block" width="40px" height="40px" alt="Foto Perfil">';
+ 						} else {
+ 							echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $resultado["foto"] .'" class="img-responsive center-block" width="40px" height="40px" alt="Foto Perfil">';
+ 						}
+
+
+ 			echo   '</td>
+ 					<td>
+ 						<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-P/'. $resultado["id"] .'">
+ 							<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+ 						</a>
+ 					</td>
+ 				</tr>';
+		}
+
 	}
