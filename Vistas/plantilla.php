@@ -24,7 +24,11 @@
 
   <!-- DataTables CSS -->
   <link rel="stylesheet" href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+  <link rel="stylesheet" href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+
+   <!-- fullCalendar -->
+  <link rel="stylesheet" href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
 
 
   <!-- Google Font -->
@@ -80,15 +84,17 @@
         /*Begin ---- Direcciona al la seleccion de usuarios --- No son logueado*/
       }else if (isset($_GET["url"])) {
 
-        if ($_GET["url"] == "seleccionar") {
+        $url = explode("/", $_GET["url"]);
+
+        if ($url[0] == "seleccionar") {
 
                   include 'modulos/seleccionar.php';
 
-        } else if ($_GET["url"] == "ingreso-Secretaria") {
+        } else if ($url[0] == "ingreso-Secretaria") {
 
                   include 'modulos/ingreso-Secretaria.php';
 
-                }else if ($_GET["url"] == "ingreso-Paciente") {
+                }else if ($url[0] == "ingreso-Paciente") {
 
                   include 'modulos/ingreso-Paciente.php';
 
@@ -116,6 +122,8 @@
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Jquery UI 1.11.4 -->
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- SlimScroll -->
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -126,10 +134,19 @@
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/dist/js/demo.js"></script>
 
 <!-- DataTables--- JS -->
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net/js/jquery.dataTables.js"></script>
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.js"></script>
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+<!-- <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script> -->
 
+<!-- fullCalendar -->
+<!-- <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/moment/min/moment.min.js"></script> -->
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/moment/moment.js"></script>
+
+<!-- <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/fullcalendar.js"></script> -->
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/locale/es.js"></script>
 
 
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/doctores.js"></script>
@@ -140,6 +157,20 @@
   $(document).ready(function () {
     $('.sidebar-menu').tree()
   })
+
+  var date = new Date()
+  var d    = date.getDate(),
+  m    = date.getMonth(),
+  y    = date.getFullYear()
+
+  $('#calendar').fullCalendar({
+    // Ocultar los Domigos y Sabado
+    hiddenDays: [0, 6],
+    //Mostrar las Horas
+    defaultView: 'agendaWeek'
+  });
+
+
 </script>
 </body>
 </html>

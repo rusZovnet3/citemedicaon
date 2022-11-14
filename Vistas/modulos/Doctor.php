@@ -41,12 +41,13 @@
 
  	<section class="content">
 
- 		<div class="box">
+ 		<div class="box box-primary">
 
 
- 			<div class="box-body">
+ 			<div class="box-body no-padding">
 
-
+ 				<!-- THE CALENDAR -->
+              <div id="calendar"></div>
 
  			</div>
 
@@ -55,7 +56,3 @@
  	</section>
 
  </div>
-
- <?php
- 	/*$borrarC = new ConsultoriosC();
- 	$borrarC->BorrarConsultorioC();*/

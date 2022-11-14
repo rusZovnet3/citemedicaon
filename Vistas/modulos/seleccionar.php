@@ -19,7 +19,7 @@
             <div class="icon">
               <i class="fa fa-female"></i>
             </div>
-            <a href="ingreso-Secretaria" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/ingreso-Secretaria" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
           <!--End --- small box -->
 
@@ -57,7 +57,7 @@
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="ingreso-Paciente" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/ingreso-Paciente" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
           <!--End --- small box -->
 
