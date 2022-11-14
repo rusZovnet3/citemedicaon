@@ -167,7 +167,12 @@
     // Ocultar los Domigos y Sabado
     hiddenDays: [0, 6],
     //Mostrar las Horas
-    defaultView: 'agendaWeek'
+    defaultView: 'agendaWeek',
+
+    //Click en las casillas para el modal Cita
+    dayClick: function(date,jsEvent,view){
+      $('#idCitaModal').modal();
+    }
   });
 
 
