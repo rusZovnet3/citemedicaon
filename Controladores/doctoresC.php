@@ -120,4 +120,38 @@
 			}
 		}
 
+
+		public function VerPerfilDoctorC(){
+			$tablaBD = "doctores";
+			$id = $_SESSION["id"];
+			$resultado = DoctoresM::VerPerfilDoctorM($tablaBD, $id);
+
+
+			$objConsultor = ConsultoriosC::VerConsultoriosC("id", $resultado["id_consultorio"]);
+
+			echo '<tr>
+ 					<td>'. $resultado["usuario"] .'</td>
+ 					<td>'. $resultado["clave"] .'</td>
+ 					<td>'. $resultado["nombre"] .'</td>
+ 					<td>'. $resultado["apellido"] .'</td>
+ 					<td>';
+
+ 						if ($resultado["foto"] == "" || $resultado["foto"] == null) {
+ 							echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="img-responsive center-block" width="40px" height="40px" alt="Foto Perfil">';
+ 						} else {
+ 							echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $resultado["foto"] .'" class="img-responsive center-block" width="40px" height="40px" alt="Foto Perfil">';
+ 						}
+
+
+ 			echo   '</td>
+ 					<td>'. $objConsultor["nombre"] .'</td>
+ 					<td>Desde: '. $resultado["horarioE"] .'<br>Hasta: '. $resultado["horarioS"] .'</td>
+ 					<td>
+ 						<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-D/'. $resultado["id"] .'">
+ 							<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+ 						</a>
+ 					</td>
+ 				</tr>';
+		}
+
 	}
