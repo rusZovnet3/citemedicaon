@@ -26,7 +26,7 @@
 		}
 
 		static public function VerCitasM($tablaBD){
-			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ORDER BY inicio DESC");
 			$pdo->execute();
 
 			return $pdo->fetchAll();

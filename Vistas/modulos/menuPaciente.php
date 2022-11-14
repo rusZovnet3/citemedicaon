@@ -45,10 +45,13 @@
         </li>
 
         <li>
-          <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/historial">
-            <i class="fa fa-calendar-check-o"></i>
-            <span>Historial</span>
-          </a>
+          <?php
+          # id del paciente, su historial
+              echo '<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/historial/'. $_SESSION["id"] .'">
+                  <i class="fa fa-calendar-check-o"></i>
+                  <span>Historial</span>
+                </a>';
+           ?>
         </li>
       </ul>
 
