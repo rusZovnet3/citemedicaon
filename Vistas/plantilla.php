@@ -54,6 +54,8 @@
                   include 'modulos/menuSecretaria.php';
               }else if ($_SESSION["rol"] == "Paciente") {
                   include 'modulos/menuPaciente.php';
+              }else if ($_SESSION["rol"] == "Doctor") {
+                  include 'modulos/menuDoctor.php';
               }
 
 
@@ -97,6 +99,10 @@
                 }else if ($url[0] == "ingreso-Paciente") {
 
                   include 'modulos/ingreso-Paciente.php';
+
+                }else if ($url[0] == "ingreso-Doctor") {
+
+                  include 'modulos/ingreso-Doctor.php';
 
                 }else{
 

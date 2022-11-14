@@ -79,4 +79,45 @@
 			}
 		}
 
+		# Inisiar session DOCTOR
+		public function IngresarDoctorC(){
+			if (isset($_POST["usuario-Ing"])) {
+
+				if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["usuario-Ing"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["clave-Ing"])) {
+
+					$tablaBD 	= "doctores";
+					$datosC 	= array("usuario" 	=> $_POST["usuario-Ing"],
+										"clave" 	=> $_POST["clave-Ing"]);
+
+					$resultado = DoctoresM::IngresarDoctorM($tablaBD, $datosC);
+
+					if ($resultado["usuario"] == $_POST["usuario-Ing"] && $resultado["clave"] == $_POST["clave-Ing"]) {
+
+						# AUTORIZA LA SESSION
+						$_SESSION["Ingresar"] = true;
+
+						$_SESSION["id"] 			= $resultado["id"];
+						$_SESSION["usuario"] 		= $resultado["usuario"];
+						$_SESSION["clave"] 			= $resultado["clave"];
+						$_SESSION["nombre"] 		= $resultado["nombre"];
+						$_SESSION["apellido"] 		= $resultado["apellido"];
+						$_SESSION["foto"] 			= $resultado["foto"];
+						$_SESSION["sexo"] 			= $resultado["sexo"];
+						$_SESSION["horarioE"] 		= $resultado["horarioE"];
+						$_SESSION["horarioS"] 		= $resultado["horarioS"];
+						$_SESSION["id_consultorio"] = $resultado["id_consultorio"];
+						$_SESSION["rol"] 			= $resultado["rol"];
+
+						echo '<script>
+									window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/inicio";
+								</script>';
+
+					} else {
+						echo '<br><div class="alert alert-danger text-center">Error al Ingresar</div>';
+					}
+
+				}
+			}
+		}
+
 	}

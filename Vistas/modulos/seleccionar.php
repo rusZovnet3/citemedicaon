@@ -38,7 +38,7 @@
             <div class="icon">
               <i class="fa fa-user-md"></i>
             </div>
-            <a href="#" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/ingreso-Doctor" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
           <!--End --- small box -->
 

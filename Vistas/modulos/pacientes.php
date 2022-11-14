@@ -1,6 +1,6 @@
 <?php
 	# roles de acceso a la pagina
-	if ($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador") {
+	if ($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor") {
 		echo '<script>
 					window.location = "inicio";
 			</script>';
