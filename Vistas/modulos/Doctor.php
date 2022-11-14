@@ -115,7 +115,7 @@
 							<h2>Fecha:</h2>
 
 							<!-- Fecha Cita -->
-							<input type="text" class="form-control input-lg" id="fechaC" name="fechaC" readonly>
+							<input type="text" class="form-control input-lg" id="fechaC" readonly>
 
 						</div>
 
@@ -124,7 +124,7 @@
 							<h2>Hora:</h2>
 
 							<!-- Hora Cita -->
-							<input type="text" class="form-control input-lg" id="horaC" name="horaC" readonly>
+							<input type="text" class="form-control input-lg" id="horaC" readonly>
 
 						</div>
 
@@ -146,6 +146,14 @@
 
 					<button type="button" class="btn btn-danger">Cancelar</button>
 				</div>
+
+				<?php
+				# Guardar Citas Modal
+
+				$enviarC = new CitasC();
+				$enviarC->EnviarCitaC();
+
+				 ?>
 
 			</form>
 

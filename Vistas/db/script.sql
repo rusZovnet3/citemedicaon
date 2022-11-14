@@ -27,7 +27,8 @@ create table doctores(
 	sexo text,
 	horarioE time,
 	horarioS time,
-	rol text
+	rol text,
+	foreign key(id_consultorio) references consultorios(id)
 );
 
 create table pacientes(
@@ -39,6 +40,19 @@ create table pacientes(
 	usuario text,
 	clave text,
 	rol varchar(8) default "Paciente"
+);
+
+create table citas(
+	id int primary key auto_increment,
+	id_doctor int,
+	id_consultorio int,
+	id_paciente int,
+	documento text,
+	inicio datetime,
+	fin datetime,
+	foreign key(id_doctor) references doctores(id),
+	foreign key(id_consultorio) references consultorios(id),
+	foreign key(id_paciente) references pacientes(id)
 );
 
 /*==========================================
@@ -71,5 +85,14 @@ alter table doctores add foreign key(id_consultorio) references consultorios(id)
 
 
 
+
+insert into usuarios(usuario,clave,nombre,apellido,documento,rol)
+	values ("carlosf","localhost","Carlos Fernando","Llanque Soliz","212129627","Administrador");
+
+select c.nombre as especialista, concat(d.apellido, ' ', d.nombre) as medico
+from consultorios c, doctores d
+ where d.id_consultorio=c.id group by especialista, medico order by especialista asc;
+
+SELECT * FROM doctores WHERE id_consultorio = ;
 
 

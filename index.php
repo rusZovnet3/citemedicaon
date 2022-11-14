@@ -14,5 +14,8 @@
 	require_once 'Controladores/pacientesC.php';
 	require_once 'Modelos/pacientesM.php';
 
+	require_once 'Controladores/citasC.php';
+	require_once 'Modelos/citasM.php';
+
 	$plantilla = new Plantilla();
 	$plantilla->llamarPlantilla();
