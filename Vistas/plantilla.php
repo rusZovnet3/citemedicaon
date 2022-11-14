@@ -172,6 +172,34 @@
     //Click en las casillas para el modal Cita
     dayClick: function(date,jsEvent,view){
       $('#idCitaModal').modal();
+
+      //Formato de fecha
+      let fecha = date.format();
+      let hora2 = ("01:00:00").split(":");
+
+      fecha = fecha.split('T');
+      let dia = fecha[0];
+      let hora = (fecha[1].split(":"));
+
+      //No permitir las media hora (00:30)
+      let h1 = parseFloat(hora[0]);
+      let h2 = parseFloat(hora2[0]);
+
+      let horaFinal = h1 + h2;
+
+      // añadir al input fechaC del modal Cita
+      //la fecha del Día
+      $('#fechaC').val(dia);
+
+      // añadir al input horaC del modal Cita
+      //la Hora del Día Final
+      $('#horaC').val(h1+":00:00");
+
+      //input oculto , Fecha y hora Inicio
+      $('#fyhIC').val(fecha[0]+" "+h1+":00:00");
+
+      //input oculto , Fecha y hora Final
+      $('#fyhFC').val(fecha[0]+" "+horaFinal+":00:00");
     }
   });
 

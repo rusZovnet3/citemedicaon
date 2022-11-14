@@ -68,35 +68,54 @@
 				<div class="modal-body">
 					<div class="box-body">
 
-						<div class="form-group">
+						<?php
 
-							<h2>Nombre del Paciente:</h2>
+						$columna = "id";
+						$valor = substr($_GET["url"], 7);
 
-							<input type="text" class="form-control input-lg" name="nyaC" readonly>
-							<!-- id del Doctor -->
-							<input type="hidden" name="Did" value="">
-							<!-- id del Paciente -->
-							<input type="hidden" name="Pid">
-							<!-- id del Consultorio -->
-							<input type="hidden" name="Cid">
+						$resultado = DoctoresC::VerDoctoresC($columna, $valor);
 
-						</div>
+						$res_consul = ConsultoriosC::VerConsultoriosC("id", $resultado["id_consultorio"]);
 
-						<div class="form-group">
+						echo '<div class="form-group">
 
-							<h2>Documento:</h2>
+								<h2>Nombre del Paciente:</h2>
 
-							<!-- documento Cita -->
-							<input type="text" class="form-control input-lg" name="documentoC" readonly>
+								<input type="text" class="form-control input-lg" name="nyaC" value="'. $_SESSION["apellido"] . ' ' . $_SESSION["nombre"] .'" readonly>
+								<!-- id del Doctor -->
+								<input type="hidden" name="Did" value="'. $resultado["id"] .'">
+								<!-- id del Paciente -->
+								<input type="hidden" name="Pid" value="'. $_SESSION["id"] .'">
 
-						</div>
+							</div>
+
+							<div class="form-group">
+
+								<h2>Documento:</h2>
+
+								<!-- documento Cita -->
+								<input type="text" class="form-control input-lg" name="documentoC" value="'. $_SESSION["documento"] .'" readonly>
+
+							</div>
+
+							<div class="form-group">
+
+								<!-- id del Consultorio -->
+								<input type="hidden" name="Cid" value="'. $res_consul["id"] .'">
+
+							</div>';
+
+						 ?>
+
+
+
 
 						<div class="form-group">
 
 							<h2>Fecha:</h2>
 
 							<!-- Fecha Cita -->
-							<input type="text" class="form-control input-lg" name="fechaC" readonly>
+							<input type="text" class="form-control input-lg" id="fechaC" name="fechaC" readonly>
 
 						</div>
 
@@ -105,19 +124,17 @@
 							<h2>Hora:</h2>
 
 							<!-- Hora Cita -->
-							<input type="text" class="form-control input-lg" name="horaC" readonly>
+							<input type="text" class="form-control input-lg" id="horaC" name="horaC" readonly>
 
 						</div>
 
 						<div class="form-group">
 
-							<h2>Hora:</h2>
-
 							<!-- Fecha y Hora Inicial Cita -->
-							<input type="text" class="form-control input-lg" name="fyhFC" id="fyhFC" value="" readonly>
+							<input type="hidden" class="form-control input-lg" name="fyhIC" id="fyhIC" value="" readonly>
 
 							<!-- Fecha y Hora Final Cita -->
-							<input type="text" class="form-control input-lg" name="fyhFC" id="fyhFC" value="" readonly>
+							<input type="hidden" class="form-control input-lg" name="fyhFC" id="fyhFC" value="" readonly>
 
 						</div>
 					</div>
