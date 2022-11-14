@@ -47,6 +47,7 @@ create table citas(
 	id_doctor int,
 	id_consultorio int,
 	id_paciente int,
+	nom_ape_pac text,
 	documento text,
 	inicio datetime,
 	fin datetime,
@@ -94,5 +95,8 @@ from consultorios c, doctores d
  where d.id_consultorio=c.id group by especialista, medico order by especialista asc;
 
 SELECT * FROM doctores WHERE id_consultorio = ;
+
+# agregar un atributo nuevo despues del atributo id_paciente
+ALTER TABLE `citas` ADD `nom_ape_pac` TEXT NOT NULL AFTER `id_paciente`;
 
 

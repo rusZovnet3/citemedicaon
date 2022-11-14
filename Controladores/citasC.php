@@ -28,4 +28,11 @@
 			}
 		}
 
+
+		static public function VerCitasC(){
+			$tablaBD 	= "citas";
+			$resultado 	= CitasM::VerCitasM($tablaBD);
+			return $resultado;
+		}
+
 	}

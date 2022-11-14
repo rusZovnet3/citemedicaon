@@ -169,6 +169,32 @@
     //Mostrar las Horas
     defaultView: 'agendaWeek',
 
+    //Mostrar Citas desde el Calendar
+    events: [
+
+          <?php
+
+          $resultado = CitasC::VerCitasC();
+
+          foreach ($resultado as $key => $value) {
+            if ($value["id_doctor"] == substr($_GET["url"], 7)) {
+
+               echo '{
+
+                  id: '. $value["id"] .',
+                  title:  "'. $value["nom_ape_pac"] .'",
+                  start:  "'. $value["inicio"] .'",
+                  end:  "'. $value["fin"] .'",
+
+               },';
+
+            }
+          }
+
+           ?>
+
+    ],
+
     //Click en las casillas para el modal Cita
     dayClick: function(date,jsEvent,view){
       $('#idCitaModal').modal();

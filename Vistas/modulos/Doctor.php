@@ -81,7 +81,7 @@
 
 								<h2>Nombre del Paciente:</h2>
 
-								<input type="text" class="form-control input-lg" name="nyaC" value="'. $_SESSION["apellido"] . ' ' . $_SESSION["nombre"] .'" readonly>
+								<input type="text" class="form-control input-lg" name="nyaC" value="'. $_SESSION["nombre"] . ' ' . $_SESSION["apellido"] .'" readonly>
 								<!-- id del Doctor -->
 								<input type="hidden" name="Did" value="'. $resultado["id"] .'">
 								<!-- id del Paciente -->
