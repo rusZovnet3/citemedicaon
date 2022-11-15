@@ -13,12 +13,14 @@
  			<div class="box-body">
  				<?php
 
- 				/*$editarPerfil = new DoctoresC();
+ 				$editarPerfil = new DoctoresC();
  				$editarPerfil->EditarPerfilDoctorC();
 
- 				$editarPerfil->ActualizarPerfilDoctorC();*/
+ 				/*$editarPerfil->ActualizarPerfilDoctorC();*/
 
  				 ?>
+
+
 
 
 

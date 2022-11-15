@@ -97,7 +97,7 @@
 		}
 
 
-		#Mostrar Perfil
+		# Mostrar Perfil
 		static public function VerPerfilDoctorM($tablaBD, $id){
 			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE id = :id");
 			$pdo->bindParam(":id", $id, PDO::PARAM_INT);
@@ -108,4 +108,6 @@
 			$pdo->close();
 			$pdo = null;
 		}
+
+
 	}

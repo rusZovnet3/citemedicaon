@@ -154,4 +154,68 @@
  				</tr>';
 		}
 
+		#Editar Perfil de Doctor
+		public function EditarPerfilDoctorC(){
+			$tablaBD = "doctores";
+			$id = $_SESSION["id"];
+			$resultado = DoctoresM::VerPerfilDoctorM($tablaBD, $id);
+
+			$objConsul = ConsultoriosC::VerConsultoriosC(null, null);
+			$objConsulID = ConsultoriosC::VerConsultoriosC("id", $resultado["id_consultorio"]);
+
+			echo '<form method="post" enctype="multipart/form-data" autocomplete="off">
+
+ 				 	<div class="row">
+
+ 				 		<div class="col-md-6 col-xs-12">
+ 				 			<h2>Nombre:</h2>
+ 				 			<input type="text" name="nombrePerfil" class="form-control input-lg" value="'.$resultado["nombre"].'">
+ 				 			<input type="hidden" name="Did" value="'.$resultado["id"].'">
+
+ 				 			<h2>Apellido:</h2>
+ 				 			<input type="text" name="apellidoPerfil" class="form-control input-lg" value="'.$resultado["apellido"].'">
+
+ 				 			<h2>Usuario:</h2>
+ 				 			<input type="text" name="usuarioPerfil" class="form-control input-lg" value="'.$resultado["usuario"].'">
+
+ 				 			<h2>Contraseña:</h2>
+ 				 			<input type="password" name="clavePerfil" class="form-control input-lg" value="'.$resultado["clave"].'">
+
+
+ 				 		</div>
+
+ 				 		<div class="col-md-6 col-xs-12">';
+ 			echo 			'<h2>Consultorio Actual: <b class="text-primary"><ins>'.$objConsulID["nombre"].'</ins></b></h2>
+ 				 			<h3>Cambiar Consultorio:</h3>
+ 				 			<select name="consultorioPerfil" class="form-control input-lg">';
+
+ 				 				foreach ($objConsul as $key => $value) {
+ 				 					echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+ 				 				}
+
+ 			echo 			'</select>
+
+ 				 			<h2>Horario:</h2>
+ 				 			Desde: <input type="time" name="hePerfil" class="input-lg" value="'.$resultado["horarioE"].'">
+ 				 			Hasta: <input type="time" name="hsPerfil" class="input-lg" value="'.$resultado["horarioS"].'">
+
+ 				 			<br><br>
+ 				 			<input type="file" name="imgPerfil"><br>';
+
+ 				 			if ($resultado["foto"] != "") {
+ 								echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/'. $resultado["foto"] .'" class="img-responsive" width="200px;">';
+ 							} else {
+ 								echo '<img src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/img/defecto.png" class="img-responsive" width="200px;">';
+ 							}
+
+ 			echo 			'<input type="hidden" name="imgActual" value="'.$resultado["foto"].'"><br>
+
+ 				 			<button type="submit" class="btn btn-success pull-right">Guardar Cambios</button>
+
+ 				 		</div>
+ 				 	</div>
+
+ 				 </form>';
+		}
+
 	}
