@@ -110,4 +110,29 @@
 		}
 
 
+		# Actualizar Perfil Doctor
+		static public function ActualizarPerfilDoctorM($tablaBD, $datosC){
+			$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET apellido = :apellido, nombre = :nombre, usuario = :usuario, clave = :clave, foto = :foto, id_consultorio = :id_consultorio, horarioE = :horarioE, horarioS = :horarioS WHERE id = :id");
+
+			$pdo->bindParam(":id", $datosC["id"], PDO::PARAM_INT);
+			$pdo->bindParam(":id_consultorio", $datosC["consultorio"], PDO::PARAM_INT);
+			$pdo->bindParam(":apellido", $datosC["apellido"], PDO::PARAM_STR);
+			$pdo->bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
+			$pdo->bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
+			$pdo->bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
+			$pdo->bindParam(":horarioE", $datosC["horarioE"], PDO::PARAM_STR);
+			$pdo->bindParam(":horarioS", $datosC["horarioS"], PDO::PARAM_STR);
+			$pdo->bindParam(":foto", $datosC["foto"], PDO::PARAM_STR);
+
+			if ($pdo->execute()) {
+				return true;
+			}else{
+				return false;
+			}
+
+			$pdo->close();
+			$pdo = null;
+		}
+
+
 	}

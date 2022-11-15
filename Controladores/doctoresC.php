@@ -169,17 +169,17 @@
 
  				 		<div class="col-md-6 col-xs-12">
  				 			<h2>Nombre:</h2>
- 				 			<input type="text" name="nombrePerfil" class="form-control input-lg" value="'.$resultado["nombre"].'">
+ 				 			<input type="text" name="nombrePerfil" class="form-control input-lg" value="'.$resultado["nombre"].'" required>
  				 			<input type="hidden" name="Did" value="'.$resultado["id"].'">
 
  				 			<h2>Apellido:</h2>
- 				 			<input type="text" name="apellidoPerfil" class="form-control input-lg" value="'.$resultado["apellido"].'">
+ 				 			<input type="text" name="apellidoPerfil" class="form-control input-lg" value="'.$resultado["apellido"].'" required>
 
  				 			<h2>Usuario:</h2>
- 				 			<input type="text" name="usuarioPerfil" class="form-control input-lg" value="'.$resultado["usuario"].'">
+ 				 			<input type="text" name="usuarioPerfil" class="form-control input-lg" value="'.$resultado["usuario"].'" required>
 
  				 			<h2>Contraseña:</h2>
- 				 			<input type="password" name="clavePerfil" class="form-control input-lg" value="'.$resultado["clave"].'">
+ 				 			<input type="password" name="clavePerfil" class="form-control input-lg" value="'.$resultado["clave"].'" required>
 
 
  				 		</div>
@@ -187,7 +187,8 @@
  				 		<div class="col-md-6 col-xs-12">';
  			echo 			'<h2>Consultorio Actual: <b class="text-primary"><ins>'.$objConsulID["nombre"].'</ins></b></h2>
  				 			<h3>Cambiar Consultorio:</h3>
- 				 			<select name="consultorioPerfil" class="form-control input-lg">';
+ 				 			<select name="consultorioPerfil" class="form-control input-lg" required autofocus>
+ 				 					<option>Seleccionar...</option>';
 
  				 				foreach ($objConsul as $key => $value) {
  				 					echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
@@ -216,6 +217,77 @@
  				 	</div>
 
  				 </form>';
+		}
+
+		# Actualizar cambios del Perfil Doctor
+		public function ActualizarPerfilDoctorC(){
+			if (isset($_POST["Did"]) && !empty($_POST["nombrePerfil"]) && !empty($_POST["apellidoPerfil"]) && !empty($_POST["usuarioPerfil"]) && !empty($_POST["clavePerfil"])) {
+
+				$rutaImg = $_POST["imgActual"];
+
+				date_default_timezone_set("America/La_Paz");
+
+				# Verifica si el input File está cargado el fichero
+				if (isset($_FILES["imgPerfil"]["tmp_name"]) && !empty($_FILES["imgPerfil"]["tmp_name"])) {
+
+					# verifica si la rutaImagen desde la BD no esta vacía
+					if (!empty($_POST["imgActual"])) {
+						#
+						unlink($_POST["imgActual"]);
+					}
+
+					#----------- PNG
+					if ($_FILES["imgPerfil"]["type"] == "image/png") {
+						$nombre = date("dmY_His_") . mt_rand(10, 999);
+						$rutaImg = "Vistas/img/Doctores/Doc-" . $nombre . ".png";
+						$foto 		= imagecreatefrompng($_FILES["imgPerfil"]["tmp_name"]);
+						imagepng($foto, $rutaImg);
+					}
+
+					#----------- JPG
+					if ($_FILES["imgPerfil"]["type"] == "image/jpeg") {
+						$nombre = date("dmY_His_") . mt_rand(10, 999);
+						$rutaImg = "Vistas/img/Doctores/Doc-" . $nombre . ".jpg";
+						$foto 		= imagecreatefromjpeg($_FILES["imgPerfil"]["tmp_name"]);
+						imagejpeg($foto, $rutaImg);
+					}
+				}
+
+				$tablaBD = "doctores";
+				$datosC = array("id" 			=> $_POST["Did"],
+								"consultorio" 	=> $_POST["consultorioPerfil"],
+								"usuario" 		=> $_POST["usuarioPerfil"],
+								"clave" 		=> $_POST["clavePerfil"],
+								"nombre" 		=> $_POST["nombrePerfil"],
+								"apellido" 		=> $_POST["apellidoPerfil"],
+								"horarioE" 		=> $_POST["hePerfil"],
+								"horarioS" 		=> $_POST["hsPerfil"],
+								"foto" 			=> $rutaImg);
+
+				$resultado = DoctoresM::ActualizarPerfilDoctorM($tablaBD, $datosC);
+
+				# Actualizar las $_SESSION del logueado sus atributos
+				$act_sess = DoctoresM::VerPerfilDoctorM($tablaBD, $_POST["Did"]);
+
+				if ($resultado == true) {
+
+					# actualiza las $_SESSION del usuario logueado
+
+						$_SESSION["usuario"] 		= $act_sess["usuario"];
+						$_SESSION["clave"] 			= $act_sess["clave"];
+						$_SESSION["nombre"] 		= $act_sess["nombre"];
+						$_SESSION["apellido"] 		= $act_sess["apellido"];
+						$_SESSION["foto"] 			= $act_sess["foto"];
+						$_SESSION["horarioE"] 		= $act_sess["horarioE"];
+						$_SESSION["horarioS"] 		= $act_sess["horarioS"];
+						$_SESSION["id_consultorio"] = $act_sess["id_consultorio"];
+
+
+					echo '<script>
+							window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/perfil-Doctor";
+						</script>';
+				}
+			}
 		}
 
 	}

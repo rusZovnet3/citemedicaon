@@ -16,7 +16,7 @@
  				$editarPerfil = new DoctoresC();
  				$editarPerfil->EditarPerfilDoctorC();
 
- 				/*$editarPerfil->ActualizarPerfilDoctorC();*/
+ 				$editarPerfil->ActualizarPerfilDoctorC();
 
  				 ?>
 
