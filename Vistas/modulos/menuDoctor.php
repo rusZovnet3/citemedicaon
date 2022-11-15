@@ -38,7 +38,11 @@
         </li>
 
         <li>
-          <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Citas">
+          <?php
+
+          echo '<a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/citas/'. $_SESSION["id"] .'">';
+
+           ?>
             <i class="fa fa-medkit"></i>
             <span>Citas</span>
           </a>

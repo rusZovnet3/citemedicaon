@@ -26,7 +26,7 @@
 
 		static public function VerPacientesM($tablaBD, $columna, $valor){
 			if ($columna == null) {
-				$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ORDER BY id ASC");
+				$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ORDER BY apellido ASC");
 				$pdo->execute();
 				return $pdo->fetchAll();
 			}else{
