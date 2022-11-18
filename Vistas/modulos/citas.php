@@ -81,8 +81,6 @@
 
 						echo '<div class="form-group">
 
-								<h2>Nombre del Paciente:</h2>
-
 								<!-- id del Doctor -->
 								<input type="hidden" name="Did" value="'. $resultado["id"] .'">
 
@@ -97,9 +95,8 @@
 							</div>
 
 							 <div class="form-group">
-							 	<h2>Seleccionar Paciente:</h2>
 							 	<select name="nombreP" class="form-control input-lg">
-						 		<option>Pacientes....</option>';
+						 		<option><b>Seleccionar Pacientes</b></option>';
 
 						 	foreach ($res_pacientes as $llave => $dato) {
 						 		echo '<option value="'. $dato["apellido"] . ' ' . $dato["nombre"] .'">'. $dato["apellido"] . ' ' . $dato["nombre"] .'</option>';
@@ -116,7 +113,7 @@
 							<h2>Documento:</h2>
 
 							<!-- Documento -->
-							<input type="text" class="form-control input-lg" name="documentoC" readonly>
+							<input type="text" class="form-control input-lg" name="documentoP" value="">
 
 						</div>
 
@@ -162,7 +159,7 @@
 				# Guardar Citas Modal
 
 				$enviarC = new CitasC();
-				$enviarC->EnviarCitaC();
+				$enviarC->PedirCitaDoctorC();
 
 				 ?>
 

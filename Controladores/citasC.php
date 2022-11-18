@@ -35,4 +35,29 @@
 			return $resultado;
 		}
 
+
+		#Pedir Citas Doctor
+		public function PedirCitaDoctorC(){
+			if (isset($_POST["Did"]) && !empty($_POST["nombreP"]) && !empty($_POST["documentoP"])) {
+
+				$tablaBD = "citas";
+				$Did = substr($_GET["url"], 6);
+
+				$datosC = array("Did" 			=> $_POST["Did"],
+								"Cid" 			=> $_POST["Cid"],
+								"nombreP" 		=> $_POST["nombreP"],
+								"documentoP" 	=> $_POST["documentoP"],
+								"fyhIC" 		=> $_POST["fyhIC"],
+								"fyhFC" 		=> $_POST["fyhFC"]);
+
+				$resultado = CitasM::PedirCitaDoctorM($tablaBD, $datosC);
+
+				if ($resultado == true) {
+					echo '<script>
+								window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/citas/"'. $Did .';
+							</script>';
+				}
+			}
+		}
+
 	}

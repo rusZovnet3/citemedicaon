@@ -175,6 +175,21 @@
     //Mostrar las Horas
     defaultView: 'agendaWeek',
 
+    /*businessHours: [ // specify an array instead
+        {
+            dow: [1, 3, 5],
+            start: '12:00',
+            end: '16:00',
+            initialView: 'timeGridWeek',
+        }
+    ],*/
+    /*color: 'yellow',   // an option!
+    textColor: 'black', // an option!*/
+    /*eventBackgroundColor: '#2D2527',  //color negro del paciente
+    eventTextColor: '#F5DD14',*/
+    /*eventBackgroundColor: '#ED1B1B',*/
+
+
     //Mostrar Citas desde el Calendar
     events: [
 
@@ -183,6 +198,8 @@
           $resultado = CitasC::VerCitasC();
 
           foreach ($resultado as $key => $value) {
+
+            # para pacientes con el doctor
             if ($value["id_doctor"] == substr($_GET["url"], 7)) {
 
                echo '{
@@ -191,6 +208,9 @@
                   title:  "'. $value["nom_ape_pac"] .'",
                   start:  "'. $value["inicio"] .'",
                   end:  "'. $value["fin"] .'",
+                  color: "black",
+                  textColor: "Yellow",
+                  textBorder: "#13F0D3",
 
                },';
 
@@ -202,15 +222,50 @@
                     title:  "'. $value["nom_ape_pac"] .'",
                     start:  "'. $value["inicio"] .'",
                     end:  "'. $value["fin"] .'",
+                    color: "#0A15F7",
+                    textColor: "#0EF5F8",
+                    textBorder: "#FC0B27",
 
                  },';
 
               }
+
           }
 
            ?>
 
     ],
+
+    <?php
+      # =======  Mostrar los turnos disponibles del Doctor  ====== #
+
+      # Vista por el Paciente
+
+      if ($_SESSION["rol"] == "Paciente") {
+        $columna = "id";
+        $valor = substr($_GET["url"], 7);
+
+        $resultado = DoctoresC::VerDoctoresC($columna, $valor);
+
+        echo 'scrollTime: "'. $resultado["horarioE"] .'",
+              minTime: "'. $resultado["horarioE"] .'",
+              maxTime: "'. $resultado["horarioS"] .'",';
+
+        # Vista por el Doctor
+
+      } else if ($_SESSION["rol"] == "Doctor") {
+            $columna = "id";
+            $valor = substr($_GET["url"], 6);
+
+            $resultado = DoctoresC::VerDoctoresC($columna, $valor);
+
+            echo 'scrollTime: "'. $resultado["horarioE"] .'",
+                  minTime: "'. $resultado["horarioE"] .'",
+                  maxTime: "'. $resultado["horarioS"] .'",';
+          }
+
+
+     ?>
 
     //Click en las casillas para el modal Cita
     dayClick: function(date,jsEvent,view){
