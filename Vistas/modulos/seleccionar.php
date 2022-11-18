@@ -76,7 +76,7 @@
             <div class="icon">
               <i class="fa fa-male"></i>
             </div>
-            <a href="#" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/ingreso-Administrador" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
           <!--End --- small box -->
 

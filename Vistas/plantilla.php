@@ -56,6 +56,8 @@
                   include 'modulos/menuPaciente.php';
               }else if ($_SESSION["rol"] == "Doctor") {
                   include 'modulos/menuDoctor.php';
+              }else if ($_SESSION["rol"] == "Administrador") {
+                  include 'modulos/menuAdmin.php';
               }
 
 
@@ -103,6 +105,10 @@
                 }else if ($url[0] == "ingreso-Doctor") {
 
                   include 'modulos/ingreso-Doctor.php';
+
+                }else if ($url[0] == "ingreso-Administrador") {
+
+                  include 'modulos/ingreso-Administrador.php';
 
                 }else{
 

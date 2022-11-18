@@ -11,6 +11,19 @@ create table secretarias(
 	rol text
 );
 
+create table semana(
+	id int primary key auto_increment,
+	nombre text
+);
+
+create table horario(
+	id int primary key auto_increment,
+	id_semana int,
+	horarioE time default "00:00:00",
+	horarioS time default "00:00:00",
+	foreign key(id_semana) references semana(id)
+);
+
 create table consultorios(
 	id int primary key auto_increment,
 	nombre text
@@ -25,8 +38,8 @@ create table doctores(
 	usuario text,
 	clave text,
 	sexo text,
-	horarioE time,
-	horarioS time,
+	horarioE time default "00:00:00",
+	horarioS time default "00:00:00",
 	rol text,
 	foreign key(id_consultorio) references consultorios(id)
 );
@@ -55,6 +68,20 @@ create table citas(
 	foreign key(id_consultorio) references consultorios(id),
 	foreign key(id_paciente) references pacientes(id)
 );
+
+create table administradores(
+	id int primary key auto_increment,
+	usuario text,
+	clave text,
+	apellido text,
+	nombre text,
+	foto text,
+	rol varchar(13) default "Administrador"
+);
+
+insert into administradores(usuario,clave,apellido,nombre)
+	values ('carlosf','carlosf','Llanque Soliz','Carlos'),
+			('carmenr','carmenr','Fernandez Castro','Carmen');
 
 /*==========================================
 =            Datos de tablas               =
@@ -98,5 +125,20 @@ SELECT * FROM doctores WHERE id_consultorio = ;
 
 # agregar un atributo nuevo despues del atributo id_paciente
 ALTER TABLE `citas` ADD `nom_ape_pac` TEXT NOT NULL AFTER `id_paciente`;
+
+
+#cambiar el tipo de dato del atributo a default 00:00:00
+ALTER TABLE `doctores` CHANGE `horarioE` `horarioE` TIME NULL DEFAULT '00:00:00';
+
+
+# Mostrar las citas del doctor, ordenados de manera Ascendente
+select ct.id as id_cita, concat(ct.inicio,'  -------  ',ct.fin) as atencion_cita,
+ ct.id_paciente as id_paciente, ct.nom_ape_pac as paciente, c.id as id_consultorio,
+ c.nombre as consultorio, d.id as id_doctorr, concat(d.apellido,' ',d.apellido) as doctor,
+concat(d.horarioE,' ',horarioS) as horario_doctor
+ from citas ct, doctores d, consultorios c
+where ct.id_doctor=d.id AND ct.id_consultorio=c.id AND d.id=15 ORDER BY date(ct.inicio) ASC;
+
+
 
 
