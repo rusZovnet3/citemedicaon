@@ -16,7 +16,7 @@
     <div class="box">
       <div class="box-body">
 
-        <table class="table table-bordered table-hover table-striped">
+        <table class="table table-bordered table-hover table-striped dt-responsive">
           <thead>
             <tr>
               <th>Usuario</th>
