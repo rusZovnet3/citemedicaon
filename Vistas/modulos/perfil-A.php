@@ -16,7 +16,7 @@
  				$editarPerfil = new AdministradorC();
  				$editarPerfil->EditarPerfilAdministradorC();
 
- 				/*$editarPerfil->ActualizarPerfilAdministradorC();*/
+ 				$editarPerfil->ActualizarPerfilAdministradorC();
 
  				 ?>
 
