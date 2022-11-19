@@ -50,4 +50,29 @@
 			$pdo = null;
 
 		}
+
+		static public function VerSecretariasM($tablaBD, $orden, $columna){
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ORDER BY $columna $orden");
+
+			$pdo->execute();
+			return $pdo->fetchAll();
+		}
+
+		static public function CrearSecretariaM($tablaBD, $datosC){
+			$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD (usuario,clave,nombre,apellido) VALUES (:usuario, :clave, :nombre, :apellido)");
+
+			$pdo->bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
+			$pdo->bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
+			$pdo->bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
+			$pdo->bindParam(":apellido", $datosC["apellido"], PDO::PARAM_STR);
+
+			if ($pdo->execute()) {
+				return true;
+			} else {
+				return false;
+			}
+
+			$pdo->close();
+			$pdo = null;
+		}
 	}

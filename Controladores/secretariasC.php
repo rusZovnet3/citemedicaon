@@ -180,4 +180,31 @@
 				}
 			}
 		}
+
+		static public function VerSecretariasC($orden, $columna){
+			$tablaBD = "secretarias";
+			$resultado = SecretariasM::VerSecretariasM($tablaBD, $orden, $columna);
+			return $resultado;
+		}
+
+
+		static public function CrearSecretariaC(){
+			if (isset($_POST["nombre"]) && !empty($_POST["nombre"]) && !empty($_POST["apellido"]) && !empty($_POST["usuario"]) && !empty($_POST["clave"])) {
+
+				$tablaBD = "secretarias";
+				$datosC = array("usuario" 	=> $_POST["usuario"],
+								"clave" 	=> $_POST["clave"],
+								"nombre" 	=> $_POST["nombre"],
+								"apellido" 	=> $_POST["apellido"]);
+
+				$resultado = SecretariasM::CrearSecretariaM($tablaBD, $datosC);
+
+				if ($resultado == true) {
+
+					echo '<script>
+							window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/secretarias";
+						</script>';
+				}
+			}
+		}
 	}
