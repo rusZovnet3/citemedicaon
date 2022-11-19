@@ -63,7 +63,7 @@
 			 						 	<td>'. $value["clave"] .'</td>
 			 							<td>
 			 								<div class="btn-group">
-			 									<button class="btn btn-danger EliminarAdmin" AAid="'. $value["id"] .'" AAimg="'. $value["foto"] .'" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
+			 									<button class="btn btn-danger EliminarSecretaria" AAid="'. $value["id"] .'" AAimg="'. $value["foto"] .'" style="margin-left:5px;"><i class="fa fa-trash"></i> Eliminar</button>
 			 								</div>
 			 							</td>
 			 						</tr>';
@@ -149,74 +149,6 @@
  	</div>
  	<!--End --- modal Crear Doctores -->
 
-
-
-
-
- 	<!--Begin Editar modal Doctores -->
- 	<div class="modal fade" id="EditarDoctor" rol="dialog">
- 		<div class="modal-dialog">
- 			<div class="modal-content">
-
- 				<form  method="post" role="form" autocomplete="off">
- 					<div class="modal-body">
- 						<div class="box-body">
-
- 							<!-- Begin -- Apellido -->
- 							<div class="form-group">
-
- 								<h2>Apellido:</h2>
- 								<input type="text" name="apellidoE" class="form-control input-lg" id="apellidoE" value="" required>
- 								<input type="hidden" id="DidE" name="DidE">
-
- 							</div>
- 							<!-- End -- Apellido -->
-
- 							<!-- Begin -- Nombre -->
- 							<div class="form-group">
-
- 								<h2>Nombre:</h2>
- 								<input type="text" name="nombreE" class="form-control input-lg" id="nombreE" required>
-
- 							</div>
- 							<!-- End -- Nombre -->
-
-
-
- 							<!-- Begin -- Usuario -->
- 							<div class="form-group">
-
- 								<h2>Usuario:</h2>
- 								<input type="text" name="usuarioE" id="usuarioE" class="form-control input-lg" value="" required>
-
- 							</div>
- 							<!-- End -- Usuario -->
-
- 							<!-- Begin -- Contraseña -->
- 							<div class="form-group">
-
- 								<h2>Contraseña:</h2>
- 								<input type="password" name="claveE" id="claveE" class="form-control input-lg" value="" required>
-
- 							</div>
- 							<!-- End -- Contraseña -->
-
- 						</div>
- 					</div>
-
- 					<div class="modal-footer">
- 						<button type="submit" class="btn btn-success">Guardar Cambios</button>
-
- 						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
- 					</div>
-
- 				</form>
-
- 			</div>
- 		</div>
- 	</div>
- 	<!--End Editar modal Doctores -->
-
  <?php
- 	/*$borrarD = new DoctoresC();
- 	$borrarD->EliminarDoctorC();*/
+ 	$borrarSe = new SecretariasC();
+ 	$borrarSe->EliminarSecretariaC();

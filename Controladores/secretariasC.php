@@ -188,7 +188,7 @@
 		}
 
 
-		static public function CrearSecretariaC(){
+		public function CrearSecretariaC(){
 			if (isset($_POST["nombre"]) && !empty($_POST["nombre"]) && !empty($_POST["apellido"]) && !empty($_POST["usuario"]) && !empty($_POST["clave"])) {
 
 				$tablaBD = "secretarias";
@@ -198,6 +198,27 @@
 								"apellido" 	=> $_POST["apellido"]);
 
 				$resultado = SecretariasM::CrearSecretariaM($tablaBD, $datosC);
+
+				if ($resultado == true) {
+
+					echo '<script>
+							window.location = "http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/secretarias";
+						</script>';
+				}
+			}
+		}
+
+		public function EliminarSecretariaC(){
+			if (isset($_GET["AAid"])) {
+
+				$id = $_GET["AAid"];
+				$tablaBD = "secretarias";
+
+				if ($_GET["AAimg"] != "") {
+					unlink($_GET["AAimg"]);
+				}
+
+				$resultado = SecretariasM::EliminarSecretariaM($tablaBD, $id);
 
 				if ($resultado == true) {
 
