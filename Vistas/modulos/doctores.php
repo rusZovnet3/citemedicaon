@@ -154,7 +154,7 @@
  							<div class="form-group">
 
  								<h2>Usuario:</h2>
- 								<input type="text" name="usuario" class="form-control input-lg" value="" required>
+ 								<input type="text" name="usuario" id="usuarioI" class="form-control input-lg" value="" required>
 
  							</div>
  							<!-- End -- Usuario -->
@@ -204,7 +204,7 @@
  						<div class="box-body">
 
  							<!-- Begin -- Apellido -->
- 							<div class="form-group">
+ 							<div class="form-group grupo-ape">
 
  								<h2>Apellido:</h2>
  								<input type="text" name="apellidoE" class="form-control input-lg" id="apellidoE" value="" required>
@@ -262,7 +262,7 @@
  							<div class="form-group">
 
  								<h2>Usuario:</h2>
- 								<input type="text" name="usuarioE" id="usuarioE" class="form-control input-lg" value="" required>
+ 								<input type="text" name="usuarioE" id="usuarioE" class="form-control input-lg" required>
 
  							</div>
  							<!-- End -- Usuario -->
@@ -271,7 +271,7 @@
  							<div class="form-group">
 
  								<h2>Contraseña:</h2>
- 								<input type="password" name="claveE" id="claveE" class="form-control input-lg" value="" required>
+ 								<input type="password" name="claveE" id="claveE" class="form-control input-lg" required>
 
  							</div>
  							<!-- End -- Contraseña -->

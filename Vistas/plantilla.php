@@ -153,19 +153,20 @@
 <!-- <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script> -->
 
 <!-- fullCalendar -->
-<!-- <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/moment/min/moment.min.js"></script> -->
+
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/moment/moment.js"></script>
 
-<!-- <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/fullcalendar.js"></script> -->
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/bower_components/fullcalendar/dist/locale/es.js"></script>
 
+ <!-- funciones Tables -->
+<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/secretarias.js"></script>
 
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/doctores.js"></script>
 
 <script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/pacientes.js"></script>
 
-<script src="http://localhost:8080/Proyecto/SitioWeb/SitioWeb/websiteCitasMedicaOnline/Vistas/js/secretarias.js"></script>
 
 <script>
   $(document).ready(function () {

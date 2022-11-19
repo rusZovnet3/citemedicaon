@@ -23,7 +23,7 @@
  				<form method="post" autocomplete="off">
 
  					<div class="col-md-6 col-xs-12">
- 						<input type="text" class="form-control" name="consultorioN" placeholder="Ingrese Nuevo Consultorio" required>
+ 						<input type="text" class="form-control" id="consultorioI" name="consultorioN" placeholder="Ingrese Nuevo Consultorio" required>
  					</div>
 
  					<button type="submit" class="btn btn-primary">Crear Consultorio</button>

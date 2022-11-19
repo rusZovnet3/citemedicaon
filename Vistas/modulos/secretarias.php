@@ -42,7 +42,7 @@
 
  						<?php
 
- 							$verSecretarias = SecretariasC::VerSecretariasC("ASC", "apellido");
+ 							$verSecretarias = SecretariasC::VerSecretariasC(null, null);
 
  							foreach ($verSecretarias as $key => $value) {
  								echo '<tr>
@@ -113,7 +113,7 @@
  							<div class="form-group">
 
  								<h2>Usuario:</h2>
- 								<input type="text" name="usuario" class="form-control input-lg" required>
+ 								<input type="text" name="usuario" id="usuarioS" class="form-control input-lg" required>
 
  							</div>
  							<!-- End -- Usuario -->

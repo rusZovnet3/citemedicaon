@@ -44,6 +44,20 @@
 			$pdo = null;
 		}
 
+		# Evitar repetir dos veces, para Modificar usuario Doctor
+		static public function ExcepVerDoctoresM($tablaBD, $columna, $valor, $id){
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE $columna = :$columna AND id NOT IN(:id)");
+
+			$pdo->bindParam(":id", $id, PDO::PARAM_INT);
+			$pdo->bindParam(":" . $columna, $columna, PDO::PARAM_STR);
+			$pdo->execute();
+
+			return $pdo->fetchAll();
+
+			$pdo->close();
+			$pdo = null;
+		}
+
 
 		static public function ActualizarDoctorM($tablaBD, $datosC){
 			$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET apellido = :apellido, nombre = :nombre, usuario = :usuario, clave = :clave, sexo = :sexo, id_consultorio = :id_consultorio WHERE id = :id");

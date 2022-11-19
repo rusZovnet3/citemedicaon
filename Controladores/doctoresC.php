@@ -31,6 +31,13 @@
 			return $resultado;
 		}
 
+		# Evitar repetir dos veces, para Modificar usuario Doctor
+		static public function ExcepVerDoctoresC($columna, $valor, $id){
+			$tablaBD 	= "doctores";
+			$resultado 	= DoctoresM::ExcepVerDoctoresM($tablaBD, $columna, $valor, $id);
+			return $resultado;
+		}
+
 
 		public function ActualizarDoctorC(){
 

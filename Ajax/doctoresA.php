@@ -8,6 +8,13 @@
 	class DoctoresA{
 		public $Did;
 		public $Cid;
+		public $NoRepetird;
+		public $NomCons;
+
+		public $NoRepetirdm;
+		/*public $NoRepetirdmID;*/
+		/*$NoRepetirdm 	= $_REQUEST["NoRepetirdm"];
+		$NoRepetirdmID 	= $_REQUEST["NoRepetirdmID"];*/
 
 		/*=====================================
 		=            Editar Doctor            =
@@ -32,6 +39,38 @@
 			echo json_encode($resultado);
 		}
 
+		/*==========================================
+		=            No repetir usuario            =
+		==========================================*/
+		public function NoRepetirUsuarioA(){
+			$columna = "usuario";
+			$valor = $this->NoRepetird;
+			$resultado 	= DoctoresC::VerDoctoresC($columna, $valor);
+			echo json_encode($resultado);
+		}
+
+
+		/*==========================================
+		=            No repetir usuario Modificar  =
+		==========================================*/
+		public function NoRepetirUsuarioAM(){
+			$columna = "usuario";
+			$valor = $this->NoRepetirdm;
+			/*$id = $this->NoRepetirdmID;
+			$resultado 	= DoctoresC::ExcepVerDoctoresC($columna, $valor, $id);*/
+			$resultado 	= DoctoresC::VerDoctoresC($columna, $valor);
+			echo json_encode($resultado);
+		}
+
+		/*==========================================
+		=            No repetir consultorio        =
+		==========================================*/
+		public function NoRepetirConsultorioA(){
+			$columna = "nombre";
+			$valor = $this->NomCons;
+			$resultado 	= ConsultoriosC::VerConsultoriosC($columna, $valor);
+			echo json_encode($resultado);
+		}
 
 	}
 
@@ -54,4 +93,32 @@
 		$editMost = new DoctoresA();
 		$editMost->Cid = $_POST["consultorio"];
 		$editMost->EMostrarConsultorioA();
+	}
+
+	/*====================================================================
+	=            Ajax en JS => POST   ==== No repetir usuario            =
+	====================================================================*/
+		if (isset($_POST["NoRepetird"])) {
+		$noRepetd = new DoctoresA();
+		$noRepetd->NoRepetird = $_POST["NoRepetird"];
+		$noRepetd->NoRepetirUsuarioA();
+	}
+
+	/*====================================================================
+	=            Ajax en JS => POST   ==== No repetir usuarioM           =
+	====================================================================*/
+		if (isset($_POST["NoRepetirdm"])) {
+		$noRepetdm = new DoctoresA();
+		$noRepetdm->NoRepetirdm = $_POST["NoRepetirdm"];
+		/*$noRepetdm->NoRepetirdmID = $_POST["NoRepetirdmID"];*/
+		$noRepetdm->NoRepetirUsuarioAM();
+	}
+
+	/*====================================================================
+	=            Ajax en JS => POST   ==== No repetir consultorio        =
+	====================================================================*/
+		if (isset($_POST["NomCons"])) {
+		$noRepetc = new DoctoresA();
+		$noRepetc->NomCons = $_POST["NomCons"];
+		$noRepetc->NoRepetirConsultorioA();
 	}

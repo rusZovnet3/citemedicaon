@@ -181,9 +181,9 @@
 			}
 		}
 
-		static public function VerSecretariasC($orden, $columna){
+		static public function VerSecretariasC($columna, $valor){
 			$tablaBD = "secretarias";
-			$resultado = SecretariasM::VerSecretariasM($tablaBD, $orden, $columna);
+			$resultado = SecretariasM::VerSecretariasM($tablaBD, $columna, $valor);
 			return $resultado;
 		}
 
