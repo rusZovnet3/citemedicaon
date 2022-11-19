@@ -18,4 +18,16 @@
 			$pdo = null;
 		}
 
+		# Vista Perfil Administrador y Editar
+		static public function VerPerfilAdministradorM($tablaBD, $id){
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE id = :id");
+			$pdo->bindParam(":id", $id, PDO::PARAM_INT);
+
+			$pdo->execute();
+			return $pdo->fetch();
+
+			$pdo->close();
+			$pdo = null;
+		}
+
 	}
