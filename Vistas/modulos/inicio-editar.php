@@ -15,8 +15,7 @@
 
  				$editarInfo = new InicioC();
  				$editarInfo->EditarInfoInicioC();
-
- 				/*$editarInfo->ActualizarInfoInicioC();*/
+ 				$editarInfo->ActualizarInfoInicioC();
 
  				 ?>
 

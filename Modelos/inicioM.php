@@ -17,17 +17,27 @@
 		}
 
 
-		/*static public function EditarInfoInicioM($tablaBD, $id){
-			$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET intro = :intro,horarioE = :horarioE,horarioS = :horarioS,telefono = :telefono,correo = :correo,direccion = :direccion,logo = :logo,favicon = :favicon WHERE id = :id");
+		static public function ActualizarInfoInicioM($datosC, $tablaBD){
+			$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET intro = :intro, horarioE = :horarioE, horarioS = :horarioS, telefono = :telefono, correo = :correo, direccion = :direccion, logo = :logo, favicon = :favicon WHERE id = :id");
 
-			$pdo->bindParam(":id_consultorio", $datosC["id_consultorio"], PDO::PARAM_INT);
-			$pdo->bindParam(":apellido", $datosC["apellido"], PDO::PARAM_STR);
-			$pdo->bindParam(":nombre", $datosC["nombre"], PDO::PARAM_STR);
-			$pdo->bindParam(":foto", $datosC["foto"], PDO::PARAM_STR);
-			$pdo->bindParam(":usuario", $datosC["usuario"], PDO::PARAM_STR);
-			$pdo->bindParam(":clave", $datosC["clave"], PDO::PARAM_STR);
-			$pdo->bindParam(":sexo", $datosC["sexo"], PDO::PARAM_STR);
-			$pdo->bindParam(":rol", $datosC["rol"], PDO::PARAM_STR);
-		}*/
+			$pdo->bindParam(":id", $datosC["id"], PDO::PARAM_INT);
+			$pdo->bindParam(":intro", $datosC["intro"], PDO::PARAM_STR);
+			$pdo->bindParam(":horarioE", $datosC["horarioE"], PDO::PARAM_STR);
+			$pdo->bindParam(":horarioS", $datosC["horarioS"], PDO::PARAM_STR);
+			$pdo->bindParam(":telefono", $datosC["telefono"], PDO::PARAM_STR);
+			$pdo->bindParam(":correo", $datosC["correo"], PDO::PARAM_STR);
+			$pdo->bindParam(":direccion", $datosC["direccion"], PDO::PARAM_STR);
+			$pdo->bindParam(":logo", $datosC["logo"], PDO::PARAM_STR);
+			$pdo->bindParam(":favicon", $datosC["favicon"], PDO::PARAM_STR);
+
+			if ($pdo->execute()) {
+				return true;
+			}else{
+				return false;
+			}
+
+			$pdo->close();
+			$pdo = null;
+		}
 
 	}
