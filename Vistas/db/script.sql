@@ -8,12 +8,24 @@ create table secretarias(
 	nombre text,
 	apellido text,
 	foto text,
-	rol text
+	rol varchar(10) default "Secretaria"
 );
 
 create table semana(
 	id int primary key auto_increment,
 	nombre text
+);
+
+create table inicio(
+	id int primary key auto_increment,
+	intro text,
+	horarioE time,
+	horarioS time,
+	telefono text,
+	correo text,
+	direccion text,
+	logo text,
+	favicon text
 );
 
 create table horario(
@@ -102,7 +114,9 @@ insert into pacientes(apellido,nombre,documento,usuario,clave)
 			('Soruco Zeballos','Vanessa','100452','vanessas','vanessas');
 
 
-
+insert into inicio(intro,horarioE,horarioS,telefono,correo,direccion,logo,favicon)
+	values('Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nesciunt minus, adipisci aperiam ea quod, necessitatibus facere? Cupiditate pariatur, aspernatur ipsam autem expedita saepe, odit impedit, voluptates, temporibus alias soluta!
+Maxime ipsum quam vero perspiciatis praesentium a, id reprehenderit autem eum dolores quasi incidunt sed ab debitis atque, cum, tenetur facere esse deserunt! Atque commodi ad ducimus ea veritatis, dolorem.','07:00:00','18:00:00','(+591)74652284','atencion@clinica.bo','c/ 24 de Septiembre entre la Arenales #51','Vistas/img/logo.png','Vistas/img/logo.png');
 
 /*==========================================
 =            Relacion de tablas            =
