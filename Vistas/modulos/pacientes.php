@@ -28,14 +28,14 @@
  				<table class="table table-bordered table-hover table-striped dt-responsive DT">
  					<thead>
  						<tr>
- 							<th>N°</th>
+ 							<th width="8%">N°</th>
  							<th>Apellido</th>
  							<th>Nombre</th>
- 							<th>Documento</th>
- 							<th>Foto</th>
+ 							<th width="8%">Documento</th>
+ 							<th width="8%">Foto</th>
  							<th>Usuario</th>
  							<th>Contraseña</th>
- 							<th>Editar / Borrar</th>
+ 							<th width="20%">Editar / Borrar</th>
  						</tr>
  					</thead>
 
@@ -112,7 +112,7 @@
  							<div class="form-group">
 
  								<h2>Documento:</h2>
- 								<input type="text" name="documento" class="form-control input-lg" required>
+ 								<input type="text" name="documento" class="form-control input-lg" required placeholder="nro documento" maxlength="8">
 
  							</div>
  							<!-- End -- Documento -->

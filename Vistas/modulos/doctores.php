@@ -28,14 +28,14 @@
  				<table class="table table-bordered table-hover table-striped dt-responsive DT">
  					<thead>
  						<tr>
- 							<th>N°</th>
+ 							<th width="8%">N°</th>
  							<th>Apellido</th>
  							<th>Nombre</th>
- 							<th>Foto</th>
+ 							<th width="8%">Foto</th>
  							<th>Consultorio</th>
  							<th>Usuario</th>
  							<th>Contraseña</th>
- 							<th>Editar / Borrar</th>
+ 							<th width="20%">Editar / Borrar</th>
  						</tr>
  					</thead>
 
